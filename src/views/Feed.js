@@ -1,16 +1,19 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import React from 'react';
 
 import {
   StyleSheet,
   View,
+  Text,
 } from 'react-native';
 
-import React, {
+const {
   Component,
   PropTypes,
-} from 'react';
+} = React;
 
+import GameAddButton from '../components/Game/AddButton';
 import gameActions from '../actions/gameActions';
 
 const styles = StyleSheet.create({
@@ -35,8 +38,14 @@ class Feed extends Component {
 
 
   render() {
+    console.log('---', this.props.game);
     return (
-      <View style={styles.container} />
+      <View style={styles.container}>
+        <GameAddButton />
+        <Text>
+          The current scene is titled {this.props.routes}.
+        </Text>
+      </View>
     );
   }
 
@@ -45,10 +54,12 @@ class Feed extends Component {
 Feed.propTypes = {
   game: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
+  routes: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   game: state.game,
+  routes: state.routes,
 });
 const mapDispatchToProps = (dispatch) => ({
   gameActions: bindActionCreators(gameActions, dispatch),
