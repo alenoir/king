@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint .",
-    "test": "jest && ./node_modules/.bin/codecov"
+    "test": "jest"
   },
   "jest": {
     "preset": "jest-react-native",
@@ -20,6 +20,7 @@
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.1",
     "redux-logger": "^2.0.4",
+    "redux-mock-store": "^1.2.0",
     "redux-thunk": "^2.1.0",
     "remote-redux-devtools": "^0.4.1"
   },

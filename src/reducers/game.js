@@ -1,9 +1,6 @@
 import { Record, fromJS } from 'immutable';
 
 import {
-  PLAYERS_RECEIVE,
-  PLAYER_REMOVE,
-
   GAMES_RECEIVE,
   GAME_REMOVE,
 } from '../constants/ActionTypes';
