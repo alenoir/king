@@ -5,12 +5,14 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest && ./node_modules/.bin/codecov"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "jest-react-native",
+    "collectCoverage": true
   },
   "dependencies": {
+    "codecov": "^1.0.1",
     "immutable": "^3.8.1",
     "react": "15.3.1",
     "react-native": "0.32.0",
