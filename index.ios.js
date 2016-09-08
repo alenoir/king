@@ -7,25 +7,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
 } from 'react-native';
-
-const { Provider } = require('react-redux');
-const configureStore = require('./src/store/configureStore');
-
-const store = configureStore();
-
-class king extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-      <Text style={styles.welcome}>
-        Welcome to React Native!
-      </Text>
-      </Provider>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -45,5 +27,22 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+const { Provider } = require('react-redux');
+const configureStore = require('./src/store/configureStore');
+
+const store = configureStore();
+
+class king extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+      </Provider>
+    );
+  }
+}
 
 AppRegistry.registerComponent('king', () => king);
