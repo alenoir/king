@@ -22,21 +22,19 @@ const styles = StyleSheet.create({
 
 });
 
-class GameList extends Component {
+class GameHome extends Component {
 
   render() {
-    const { game } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{game.getPlayerIds()}</Text>
+        <Text style={styles.title}>Ok</Text>
       </View>
     );
   }
 
 }
 
-GameList.propTypes = {
-  game: PropTypes.object,
+GameHome.propTypes = {
 };
 
-module.exports = GameList;
+export default GameHome;

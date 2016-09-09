@@ -5,12 +5,12 @@ import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import GameAddButton from '../components/Game/AddButton';
+import GameList from '../components/Game/List';
 import gameActions from '../actions/gameActions';
 
 const {
   StyleSheet,
   View,
-  Text,
 } = ReactNative;
 
 const {
@@ -22,7 +22,13 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2DB0CD',
+    backgroundColor: 'black',
+  },
+  button: {
+    flex: 1,
+  },
+  list: {
+    flex: 6,
   },
 });
 
@@ -36,7 +42,9 @@ class Feed extends Component {
   }
 
   componentDidMount() {
-    this.props.gameActions.fetch();
+    this.props.gameActions.fetch().then(() => {
+      // Actions.gameHome({ gameId: '1473434578909' });
+    });
   }
 
   handleAddGame() {
@@ -44,12 +52,12 @@ class Feed extends Component {
   }
 
   render() {
+    const { game } = this.props;
+
     return (
       <View style={styles.container}>
-        <GameAddButton text="Add" onPress={(() => this.handleAddGame())} />
-        <Text>
-          The current scene is titled {this.props.routes.get('scene').get('title')}.
-        </Text>
+        <GameAddButton style={styles.button} text="Add" onPress={(() => this.handleAddGame())} />
+        <GameList style={styles.list} games={game.get('list')} />
       </View>
     );
   }

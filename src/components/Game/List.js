@@ -1,42 +1,49 @@
+import React from 'react';
+import ReactNative from 'react-native';
+
+import GameItem from './Item';
+
 const {
   StyleSheet,
   View,
-  Text,
+  ScrollView,
 } = ReactNative;
 
 const {
+  PropTypes,
   Component,
 } = React;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#2DB0CD',
+
   },
-  loaderContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loader: {
-    fontFamily: 'Varela Round',
-    fontSize: 30,
-    color: 'white',
-  },
+
 });
 
-class List extends Component {
-
+class GameList extends Component {
   render() {
+    const { games } = this.props;
     return (
-      <View style={styles.container}>
-        <View style={styles.loaderContainer}>
-          <Text style={styles.loader}>Loading...</Text>
-        </View>
+      <View style={this.props.style}>
+        <ScrollView style={styles.container}>
+          {games.valueSeq().map((game) => {
+            return (
+              <GameItem key={game.getId()} game={game} />
+            );
+          })}
+        </ScrollView>
       </View>
+
     );
   }
 
 }
 
-module.exports = List;
+GameList.propTypes = {
+  style: PropTypes.number,
+  games: PropTypes.object,
+  players: PropTypes.object,
+};
+
+module.exports = GameList;

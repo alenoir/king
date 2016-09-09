@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: '#2DB0CD',
   },
   content: {
     flex: 1,
@@ -37,14 +36,16 @@ class AddButton extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity
-          onPress={this.props.onPress}
-        >
-          <View style={styles.content}>
-            <Text style={styles.text}>{this.props.text}</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={this.props.style}>
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={this.props.onPress}
+          >
+            <View style={styles.content}>
+              <Text style={styles.text}>{this.props.text}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -54,6 +55,7 @@ class AddButton extends Component {
 AddButton.propTypes = {
   onPress: PropTypes.func,
   text: PropTypes.string,
+  style: PropTypes.number,
 };
 
 module.exports = AddButton;

@@ -50,10 +50,13 @@ class Feed extends Component {
 
   handleNext() {
     const game = {
+      id: new Date().getTime().toString(),
       title: '',
       playerIds: this.state.selectedPlayers,
     };
-    this.props.gameActions.create(game);
+    this.props.gameActions.create(game).then(() => {
+      Actions.gameHome({ gameId: game.id });
+    });
   }
 
   render() {

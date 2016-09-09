@@ -12,6 +12,7 @@ const {
   View,
   Text,
   TouchableOpacity,
+  TextInput,
 } = ReactNative;
 
 const {
@@ -32,18 +33,37 @@ const styles = StyleSheet.create({
 
 class GameScore extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const players = props.game.get('list').getPlayerIds();
+
+    const playerScores = players.map((player) => {
+      return {
+        name: player,
+        score: 0,
+      };
+    });
     this.state = {
+      playerScores,
     };
   }
 
   componentDidMount() {
+
+  }
+
+  handleOnChange() {
+
   }
 
   render() {
     return (
-      <View style={styles.container} />
+      <View style={styles.container}>
+        <TextInput
+          onChange={(value) => this.handleOnChange(value)}
+        />
+      </View>
     );
   }
 
