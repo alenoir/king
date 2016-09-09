@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
 import ReactNative from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import GameAddButton from '../components/Game/AddButton';
 import gameActions from '../actions/gameActions';
@@ -38,13 +39,17 @@ class Feed extends Component {
     this.props.gameActions.fetch();
   }
 
+  handleAddGame() {
+    console.log('-- handle addGame --');
+    Actions.gameNew();
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <GameAddButton />
+        <GameAddButton text="Add" onPress={(() => this.handleAddGame())} />
         <Text>
-          The current scene is titled {this.props.routes.scene.title}.
+          The current scene is titled {this.props.routes.get('scene').get('title')}.
         </Text>
       </View>
     );

@@ -1,8 +1,9 @@
-import { Scene, Actions, Router, Reducer } from 'react-native-router-flux';
+import { Scene, Actions, Router, Reducer, Modal } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import React from 'react';
 
 import Feed from './views/Feed';
+import GameNew from './views/Game/New';
 
 const {
   Component,
@@ -10,8 +11,11 @@ const {
 } = React;
 
 const scenes = Actions.create(
-  <Scene key="root">
-    <Scene key="feed" component={Feed} title="Feed" initial />
+  <Scene key="modal" component={Modal} >
+    <Scene key="root" hideNavBar>
+      <Scene key="feed" component={Feed} title="Feed" />
+      <Scene key="gameNew" direction="vertical" component={GameNew} title="New Game" initial />
+    </Scene>
   </Scene>
 );
 

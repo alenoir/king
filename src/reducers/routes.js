@@ -1,6 +1,6 @@
-import { Record, Map } from 'immutable';
+import { Map } from 'immutable';
 
-const initialState = new Record({
+const initialState = new Map({
   scene: new Map(),
 });
 
