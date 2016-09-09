@@ -3,15 +3,13 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action = {}) {
+
   switch (action.type) {
-    // focus action is dispatched when a new screen comes into focus
-    case "focus":
+    case "REACT_NATIVE_ROUTER_FLUX_FOCUS":
       return {
-        ...state, // eslint-disable-line
+        ...state,
         scene: action.scene,
       };
-
-    // ...other actions
 
     default:
       return state;

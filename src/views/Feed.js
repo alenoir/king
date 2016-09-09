@@ -38,12 +38,12 @@ class Feed extends Component {
 
 
   render() {
-    console.log('---', this.props.game);
+    console.log('---', this.props.routes);
     return (
       <View style={styles.container}>
         <GameAddButton />
         <Text>
-          The current scene is titled {this.props.routes}.
+          The current scene is titled {this.props.routes.scene.title}.
         </Text>
       </View>
     );
