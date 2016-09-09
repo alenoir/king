@@ -1,0 +1,70 @@
+exports[`Participant Choice render 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column"
+    }
+  }>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start"
+      }
+    }>
+    <TextInput
+      autoFocus={true}
+      onChangeText={[Function onChangeText]}
+      onSubmitEditing={[Function onSubmitEditing]}
+      returnKeyType="next"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ff5555",
+            "color": "#0000ff",
+            "fontSize": 14,
+            "height": 40,
+            "minWidth": 60
+          },
+          Object {
+            "width": 10
+          }
+        ]
+      }
+      value="" />
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function bound touchableHandleResponderGrant]}
+      onResponderMove={[Function bound touchableHandleResponderMove]}
+      onResponderRelease={[Function bound touchableHandleResponderRelease]}
+      onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+      onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+      onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+      style={
+        Object {
+          "backgroundColor": "#543212",
+          "height": 40,
+          "opacity": 1,
+          "width": 40
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        Add
+      </Text>
+    </View>
+  </View>
+</View>
+`;
