@@ -1,20 +1,22 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
+import ReactNative from 'react-native';
 
-import {
+import GameAddButton from '../components/Game/AddButton';
+import gameActions from '../actions/gameActions';
+
+const {
   StyleSheet,
   View,
   Text,
-} from 'react-native';
+} = ReactNative;
 
 const {
   Component,
   PropTypes,
 } = React;
 
-import GameAddButton from '../components/Game/AddButton';
-import gameActions from '../actions/gameActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +40,6 @@ class Feed extends Component {
 
 
   render() {
-    console.log('---', this.props.routes);
     return (
       <View style={styles.container}>
         <GameAddButton />
