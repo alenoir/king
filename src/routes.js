@@ -13,8 +13,8 @@ const {
 const scenes = Actions.create(
   <Scene key="modal" component={Modal} >
     <Scene key="root" hideNavBar>
-      <Scene key="feed" component={Feed} title="Feed" />
-      <Scene key="gameNew" direction="vertical" component={GameNew} title="New Game" initial />
+      <Scene key="feed" component={Feed} title="Feed" initial />
+      <Scene key="gameNew" direction="vertical" component={GameNew} title="New Game" />
     </Scene>
   </Scene>
 );

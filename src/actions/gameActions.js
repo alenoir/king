@@ -15,6 +15,7 @@ module.exports = {
       });
     };
   },
+
   create: (data) => {
     return (dispatch) => {
       return ApiHelper.createGame(data).then((game) => {
@@ -25,6 +26,7 @@ module.exports = {
       });
     };
   },
+
   update: (id, data) => {
     return (dispatch) => {
       return ApiHelper.updateGame(id, data).then((game) => {
@@ -35,6 +37,7 @@ module.exports = {
       });
     };
   },
+
   remove: (id) => {
     return (dispatch) => {
       const payload = {

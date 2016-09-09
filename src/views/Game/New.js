@@ -4,13 +4,14 @@ import React from 'react';
 import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import GameAddButton from '../components/Game/AddButton';
-import gameActions from '../actions/gameActions';
+import ParticipantChoice from '../../components/Participant/Choice';
+import gameActions from '../../actions/gameActions';
 
 const {
   StyleSheet,
   View,
   Text,
+  TouchableOpacity,
 } = ReactNative;
 
 const {
@@ -24,6 +25,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#2DB0CD',
   },
+  finishButton: {
+    flex: 1,
+  },
 });
 
 class Feed extends Component {
@@ -31,25 +35,41 @@ class Feed extends Component {
   constructor() {
     super();
     this.state = {
-
+      selectedPlayers: [],
     };
   }
 
   componentDidMount() {
-    this.props.gameActions.fetch();
   }
 
-  handleAddGame() {
-    Actions.gameNew();
+  handlePlayersChange(players) {
+    this.setState({
+      selectedPlayers: players,
+    });
+  }
+
+  handleNext() {
+    const game = {
+      title: '',
+      playerIds: this.state.selectedPlayers,
+    };
+    this.props.gameActions.create(game);
   }
 
   render() {
+    const { player } = this.props;
     return (
       <View style={styles.container}>
-        <GameAddButton text="Add" onPress={(() => this.handleAddGame())} />
-        <Text>
-          The current scene is titled {this.props.routes.get('scene').get('title')}.
-        </Text>
+        <ParticipantChoice
+          players={player.get('list')}
+          onChange={((ids) => this.handlePlayersChange(ids))}
+        />
+        <TouchableOpacity
+          style={styles.finishButton}
+          onPress={(() => this.handleNext())}
+        >
+          <Text>Next</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -58,12 +78,14 @@ class Feed extends Component {
 
 Feed.propTypes = {
   game: PropTypes.object.isRequired,
+  player: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
   routes: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   game: state.game,
+  player: state.player,
   routes: state.routes,
 });
 const mapDispatchToProps = (dispatch) => ({

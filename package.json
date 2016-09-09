@@ -6,7 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "postinstall": "remotedev-debugger --hostname 192.168.1.21 --port 5678 --injectserver",
     "lint": "eslint .",
-    "test": "NODE_ENV=__TEST__ jest"
+    "test": "NODE_ENV=__TEST__ jest --watch"
   },
   "jest": {
     "preset": "jest-react-native",
@@ -31,6 +31,8 @@
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-jest": "^15.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-react-native": "^1.9.0",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
