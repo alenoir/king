@@ -1,3 +1,4 @@
+import ApiHelper from '../helper/Api';
 import {
   SCORES_RECEIVE,
   SCORE_REMOVE,
@@ -6,11 +7,32 @@ import {
 module.exports = {
   fetch: () => {
     return (dispatch) => {
-      const payload = {
-        scores: [],
-      };
-      dispatch({ type: SCORES_RECEIVE, payload });
-      return Promise.resolve();
+      return ApiHelper.fetchScores().then((scores) => {
+        const payload = {
+          scores,
+        };
+        dispatch({ type: SCORES_RECEIVE, payload });
+      });
+    };
+  },
+  create: (data) => {
+    return (dispatch) => {
+      return ApiHelper.createScore(data).then((score) => {
+        const payload = {
+          scores: [score],
+        };
+        dispatch({ type: SCORES_RECEIVE, payload });
+      });
+    };
+  },
+  update: (id, data) => {
+    return (dispatch) => {
+      return ApiHelper.updateScore(id, data).then((score) => {
+        const payload = {
+          scores: [score],
+        };
+        dispatch({ type: SCORES_RECEIVE, payload });
+      });
     };
   },
   remove: (id) => {

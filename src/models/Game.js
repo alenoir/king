@@ -6,7 +6,7 @@ const GameRecord = Record({
   playerIds: new List(),
   winnerId: null,
   createdAt: new Date(),
-  closedAt: new Date(),
+  closedAt: null,
 });
 
 class Game extends GameRecord {
