@@ -4,8 +4,8 @@ import React from 'react';
 import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import ParticipantChoice from '../../components/Participant/Choice';
 import gameActions from '../../actions/gameActions';
+import scoreActions from '../../actions/scoreActions';
 
 const {
   StyleSheet,
@@ -79,6 +79,10 @@ const styles = StyleSheet.create({
   playerName: {
     color: 'white',
   },
+
+  score: {
+    color: 'white',
+  },
 });
 
 class Feed extends Component {
@@ -88,11 +92,12 @@ class Feed extends Component {
 
     this.state = {
       players: [],
+      currentRound: 0,
     };
   }
 
   componentDidMount() {
-
+    this.props.scoreActions.fetch(this.props.gameId);
   }
 
   getPlayerScore(id) {
@@ -100,7 +105,7 @@ class Feed extends Component {
   }
 
   handleAddScore() {
-    Actions.gameScore({ gameId: this.props.gameId });
+    Actions.gameScore({ gameId: this.props.gameId, round: this.state.currentRound });
   }
 
   handleClose() {
@@ -112,7 +117,12 @@ class Feed extends Component {
     const { game, gameId } = this.props;
 
     const gameObject = game.get('list').get(gameId);
+    const scoreList = this.props.score.get('list');
+    const scores = scoreList.filter((score) => {
+      return score.getGameId() === this.props.gameId;
+    });
 
+    console.log(scores);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -144,8 +154,15 @@ class Feed extends Component {
               <Text>Add Score</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.colScore} />
-
+          <View style={styles.colScore}>
+            {scores.valueSeq().map((score) => {
+              return (
+                <View key={`total_${score.getId()}`} style={styles.playerScoreWrapper}>
+                  <Text style={styles.score}>{score.getValue()}</Text>
+                </View>
+              );
+            })}
+          </View>
         </View>
       </View>
     );
@@ -155,19 +172,23 @@ class Feed extends Component {
 
 Feed.propTypes = {
   gameId: PropTypes.string.isRequired,
+  score: PropTypes.object.isRequired,
   game: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
+  scoreActions: PropTypes.object.isRequired,
   routes: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
+  score: state.score,
   game: state.game,
   player: state.player,
   routes: state.routes,
 });
 const mapDispatchToProps = (dispatch) => ({
   gameActions: bindActionCreators(gameActions, dispatch),
+  scoreActions: bindActionCreators(scoreActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

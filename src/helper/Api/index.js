@@ -42,8 +42,8 @@ const Api = {
   /**
    * Score
    */
-  fetchScores() {
-    return instance.fetchScores();
+  fetchScores(gameId) {
+    return instance.fetchScores(gameId);
   },
 
   createScore(data) {
