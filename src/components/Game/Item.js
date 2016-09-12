@@ -80,7 +80,6 @@ class GameList extends Component {
 
   render() {
     const { game } = this.props;
-    console.log(game.getCreatedAt());
     return (
       <View style={styles.container}>
         <TouchableOpacity
