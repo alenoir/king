@@ -82,18 +82,57 @@ exports[`Game render Item 1`] = `
       }
     }
     testID={undefined}>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+    <View
       style={
         Object {
-          "color": "#ffffff"
+          "flex": 1
         }
       }>
-      id1
-      id2
-    </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        Partie #
+        id1
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        Mon Sep 12 2016 18:11:23 GMT+0200 (CEST)
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        id1
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -128,18 +167,57 @@ exports[`Game render List 1`] = `
           }
         }
         testID={undefined}>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Object {
-              "color": "#ffffff"
+              "flex": 1
             }
           }>
-          id1
-          id2
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            Partie #
+            id1
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            Mon Sep 12 2016 18:11:23 GMT+0200 (CEST)
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            id1
+          </Text>
+        </View>
       </View>
     </View>
   </ScrollView>
