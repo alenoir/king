@@ -110,7 +110,6 @@ class Feed extends Component {
 
   render() {
     const { game, gameId } = this.props;
-    console.log('------- gameId -------', gameId, game.get('list'));
 
     const gameObject = game.get('list').get(gameId);
 

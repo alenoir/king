@@ -5,6 +5,7 @@ const GameRecord = Record({
   title: null,
   playerIds: new List(),
   winnerId: null,
+  looserId: null,
   createdAt: new Date(),
   closedAt: null,
 });
@@ -23,6 +24,10 @@ class Game extends GameRecord {
   }
 
   getWinnerId() {
+    return this.get('winnerId');
+  }
+
+  getLooserId() {
     return this.get('winnerId');
   }
 

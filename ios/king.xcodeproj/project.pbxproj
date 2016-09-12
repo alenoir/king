@@ -26,6 +26,22 @@
 		70BE19568C25441795888844 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B77F434444411BA79FAB22 /* libz.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		90360B45CB6C4C569B49A48F /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433CBA3B3E94A0CA29B2939 /* libRealmReact.a */; };
+		A181CFD21D86FED700371389 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCA1D86FED700371389 /* Montserrat-Black.otf */; };
+		A181CFD31D86FED700371389 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCA1D86FED700371389 /* Montserrat-Black.otf */; };
+		A181CFD41D86FED700371389 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */; };
+		A181CFD51D86FED700371389 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */; };
+		A181CFD61D86FED700371389 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCC1D86FED700371389 /* Montserrat-ExtraBold.otf */; };
+		A181CFD71D86FED700371389 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCC1D86FED700371389 /* Montserrat-ExtraBold.otf */; };
+		A181CFD81D86FED700371389 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCD1D86FED700371389 /* Montserrat-Hairline.otf */; };
+		A181CFD91D86FED700371389 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCD1D86FED700371389 /* Montserrat-Hairline.otf */; };
+		A181CFDA1D86FED700371389 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCE1D86FED700371389 /* Montserrat-Light.otf */; };
+		A181CFDB1D86FED700371389 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCE1D86FED700371389 /* Montserrat-Light.otf */; };
+		A181CFDC1D86FED700371389 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCF1D86FED700371389 /* Montserrat-Regular.otf */; };
+		A181CFDD1D86FED700371389 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCF1D86FED700371389 /* Montserrat-Regular.otf */; };
+		A181CFDE1D86FED700371389 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */; };
+		A181CFDF1D86FED700371389 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */; };
+		A181CFE01D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
+		A181CFE11D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +157,14 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9EFB99EF7D884EF5908D2145 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
+		A181CFCA1D86FED700371389 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		A181CFCC1D86FED700371389 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		A181CFCD1D86FED700371389 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		A181CFCE1D86FED700371389 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		A181CFCF1D86FED700371389 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +284,7 @@
 		13B07FAE1A68108700A75B9A /* king */ = {
 			isa = PBXGroup;
 			children = (
+				A181CFBE1D86FEA300371389 /* Font */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -333,6 +358,21 @@
 				00E356EE1AD99517003FC87E /* kingTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A181CFBE1D86FEA300371389 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A181CFCA1D86FED700371389 /* Montserrat-Black.otf */,
+				A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */,
+				A181CFCC1D86FED700371389 /* Montserrat-ExtraBold.otf */,
+				A181CFCD1D86FED700371389 /* Montserrat-Hairline.otf */,
+				A181CFCE1D86FED700371389 /* Montserrat-Light.otf */,
+				A181CFCF1D86FED700371389 /* Montserrat-Regular.otf */,
+				A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */,
+				A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		A19B11331D86F52E0033A8C9 /* Products */ = {
@@ -547,6 +587,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A181CFDB1D86FED700371389 /* Montserrat-Light.otf in Resources */,
+				A181CFDF1D86FED700371389 /* Montserrat-SemiBold.otf in Resources */,
+				A181CFD71D86FED700371389 /* Montserrat-ExtraBold.otf in Resources */,
+				A181CFD31D86FED700371389 /* Montserrat-Black.otf in Resources */,
+				A181CFE11D86FED700371389 /* Montserrat-UltraLight.otf in Resources */,
+				A181CFD91D86FED700371389 /* Montserrat-Hairline.otf in Resources */,
+				A181CFD51D86FED700371389 /* Montserrat-Bold.otf in Resources */,
+				A181CFDD1D86FED700371389 /* Montserrat-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,8 +602,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A181CFD81D86FED700371389 /* Montserrat-Hairline.otf in Resources */,
+				A181CFD61D86FED700371389 /* Montserrat-ExtraBold.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A181CFDE1D86FED700371389 /* Montserrat-SemiBold.otf in Resources */,
+				A181CFE01D86FED700371389 /* Montserrat-UltraLight.otf in Resources */,
+				A181CFDC1D86FED700371389 /* Montserrat-Regular.otf in Resources */,
+				A181CFD21D86FED700371389 /* Montserrat-Black.otf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				A181CFDA1D86FED700371389 /* Montserrat-Light.otf in Resources */,
+				A181CFD41D86FED700371389 /* Montserrat-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +724,7 @@
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = king/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -689,6 +746,7 @@
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = king/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

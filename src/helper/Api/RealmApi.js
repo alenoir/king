@@ -25,14 +25,21 @@ const decodeGameData = (data) => {
 
 const Api = {
   fetchGames() {
-    const games = realmGames.map((game) => decodeGameData(game));
+    const games = realmGames.sorted('createdAt', true).map((game) => decodeGameData(game));
     return Promise.resolve(games);
   },
 
   createGame(data) {
     return new Promise((resolve) => {
       const dataEncoded = encodeGameData(data);
-
+      const lastGames = realmGames.sorted('id', true);
+      let id = '1';
+      if (lastGames.length !== 0) {
+        let intId = parseInt(lastGames[0].id, 10);
+        intId++;
+        id = intId.toString();
+      }
+      dataEncoded.id = id;
       realm.write(() => {
         const game = realm.create('Game', dataEncoded);
         resolve(decodeGameData(game));

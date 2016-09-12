@@ -18,10 +18,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  titleWrapper: {
+    flex: 1,
+  },
   title: {
+    fontFamily: 'Montserrat-Light',
     color: '#ffffff',
   },
 
+  subTitleWrapper: {
+    flex: 1,
+  },
+  winner: {
+    fontFamily: 'Montserrat-Light',
+    color: '#ffffff',
+  },
+  looser: {
+    fontFamily: 'Montserrat-Light',
+    color: '#ffffff',
+  },
 });
 const ACTION_TIMER = 400;
 
@@ -65,6 +80,7 @@ class GameList extends Component {
 
   render() {
     const { game } = this.props;
+    console.log(game.getCreatedAt());
     return (
       <View style={styles.container}>
         <TouchableOpacity
@@ -72,7 +88,15 @@ class GameList extends Component {
           onPressIn={() => this.handlePressIn()}
           onPressOut={() => this.handlePressOut()}
         >
-          <Text style={styles.title}>{game.getPlayerIds()}</Text>
+          <View style={styles.titleWrapper}>
+            <Text style={styles.title}>Partie #{game.getId()}</Text>
+          </View>
+          <View style={styles.subTitleWrapper}>
+            <Text style={styles.winner}>{game.getCreatedAt().toString()}</Text>
+            <Text style={styles.looser}>{game.getLooserId()}</Text>
+          </View>
+
+
         </TouchableOpacity>
       </View>
     );
