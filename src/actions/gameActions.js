@@ -40,11 +40,12 @@ module.exports = {
 
   remove: (id) => {
     return (dispatch) => {
-      const payload = {
-        id,
-      };
-      dispatch({ type: GAME_REMOVE, payload });
-      return Promise.resolve();
+      return ApiHelper.removeGame(id).then(() => {
+        const payload = {
+          id,
+        };
+        dispatch({ type: GAME_REMOVE, payload });
+      });
     };
   },
 };

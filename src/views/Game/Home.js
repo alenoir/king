@@ -95,6 +95,10 @@ class Feed extends Component {
 
   }
 
+  getPlayerScore(id) {
+    return 10;
+  }
+
   handleAddScore() {
     Actions.gameScore({ gameId: this.props.gameId });
   }
@@ -103,9 +107,6 @@ class Feed extends Component {
     Actions.pop();
   }
 
-  getPlayerScore(id) {
-    return 10;
-  }
 
   render() {
     const { game, gameId } = this.props;

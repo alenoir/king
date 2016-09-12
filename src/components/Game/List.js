@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
 
 class GameList extends Component {
   render() {
-    const { games } = this.props;
+    const { games, onItemSelected, onItemLongPress } = this.props;
     return (
       <View style={this.props.style}>
         <ScrollView style={styles.container}>
           {games.valueSeq().map((game) => {
             return (
-              <GameItem key={game.getId()} game={game} />
+              <GameItem onLongPress={onItemLongPress} onSelect={onItemSelected} key={game.getId()} game={game} />
             );
           })}
         </ScrollView>
@@ -44,6 +44,8 @@ GameList.propTypes = {
   style: PropTypes.number,
   games: PropTypes.object,
   players: PropTypes.object,
+  onItemSelected: PropTypes.func,
+  onItemLongPress: PropTypes.func,
 };
 
 module.exports = GameList;

@@ -63,18 +63,38 @@ exports[`Game render Item 1`] = `
       "flex": 1
     }
   }>
-  <Text
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function bound touchableHandleResponderGrant]}
+    onResponderMove={[Function bound touchableHandleResponderMove]}
+    onResponderRelease={[Function bound touchableHandleResponderRelease]}
+    onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+    onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+    onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
     style={
       Object {
-        "color": "#ffffff"
+        "opacity": 1
       }
-    }>
-    id1
-    id2
-  </Text>
+    }
+    testID={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff"
+        }
+      }>
+      id1
+      id2
+    </Text>
+  </View>
 </View>
 `;
 
@@ -89,18 +109,38 @@ exports[`Game render List 1`] = `
           "flex": 1
         }
       }>
-      <Text
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function bound touchableHandleResponderGrant]}
+        onResponderMove={[Function bound touchableHandleResponderMove]}
+        onResponderRelease={[Function bound touchableHandleResponderRelease]}
+        onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+        onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
         style={
           Object {
-            "color": "#ffffff"
+            "opacity": 1
           }
-        }>
-        id1
-        id2
-      </Text>
+        }
+        testID={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff"
+            }
+          }>
+          id1
+          id2
+        </Text>
+      </View>
     </View>
   </ScrollView>
 </View>

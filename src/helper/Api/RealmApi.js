@@ -5,6 +5,8 @@ import GameSchema from '../../models/GameSchema';
 // Realm.clearTestState();
 const realm = new Realm({ schema: [GameSchema] });
 
+const realmGames = realm.objects('Game');
+
 const encodeGameData = (data) => {
   const decodedData = data;
   decodedData.playerIds = data.playerIds.join(',');
@@ -23,7 +25,6 @@ const decodeGameData = (data) => {
 
 const Api = {
   fetchGames() {
-    const realmGames = realm.objects('Game');
     const games = realmGames.map((game) => decodeGameData(game));
     return Promise.resolve(games);
   },
@@ -41,6 +42,16 @@ const Api = {
 
   updateGame(data) {
     return Promise.resolve(data);
+  },
+
+  removeGame(id) {
+    return new Promise((resolve) => {
+      realm.write(() => {
+        const games = realmGames.filtered(`id = "${id}"`);
+        realm.delete(games);
+        resolve(id);
+      });
+    });
   },
 };
 

@@ -20,6 +20,10 @@ const Api = {
     return instance.updateGame(data);
   },
 
+  removeGame(id) {
+    return instance.removeGame(id);
+  },
+
   /**
    * Player
    */
