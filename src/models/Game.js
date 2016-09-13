@@ -10,13 +10,19 @@ const GameRecord = Record({
   closedAt: null,
 });
 
+const pad = (num, size) => {
+  let s = num + '';
+  while (s.length < size) s = '0' + s;
+  return s;
+};
+
 class Game extends GameRecord {
   getId() {
     return this.get('id');
   }
 
   getTitle() {
-    return this.get('title');
+    return `Partie #${pad(this.get('id'), 4)}`;
   }
 
   getPlayerIds() {
