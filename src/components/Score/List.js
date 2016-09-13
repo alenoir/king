@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
 
 class ScoreList extends Component {
   render() {
-    const { rounds } = this.props;
+    const { rounds, players } = this.props;
     const sortedRounds = rounds.sort(
       (a, b) => a.id < b.id
     );
     return (
       <View style={styles.scrollviewWrapper}>
-        <ScrollView>
+        <ScrollView horizontal>
           <View style={styles.container}>
             { sortedRounds.valueSeq().map((round) => {
               return (
@@ -57,10 +57,20 @@ class ScoreList extends Component {
                     {round.id}
                   </Text>
                   <View style={styles.scoreContainer}>
-                    { round.scores.map((score) => {
-                      return (
-                        <ScoreItem score={score} key={`round_${round.id}_score_${score.getId()}`} />
-                      );
+                    { players.map((player, key) => {
+                      const score = round.scores.filter((item) => {
+                        return item.getPlayerId() === player;
+                      })[0];
+                      console.log('--------score-------', score);
+                      if (score) {
+                        return (
+                          <ScoreItem
+                            score={score}
+                            key={`score_${score.getId()}`}
+                          />
+                        );
+                      }
+                      return <View key={`score_empty_${key}`} />;
                     })}
                   </View>
 

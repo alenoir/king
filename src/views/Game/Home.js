@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Immutable, { Map } from 'immutable';
+import Immutable, { Map, List } from 'immutable';
 import React from 'react';
 import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -99,7 +99,7 @@ class Feed extends Component {
       game,
       scores: new Map(),
       rounds: new Map(),
-      players: [],
+      players: new List(),
       currentRound: 0,
     };
   }
@@ -124,12 +124,13 @@ class Feed extends Component {
     }, {}));
     const lastRound = parseInt(rounds.keySeq().max(), 10);
     const game = nextProps.game.get('list').get(nextProps.gameId);
-
+    const players = game.getPlayerIds();
     this.setState({
       currentRound: lastRound + 1,
       game,
       rounds,
       scores,
+      players,
     });
   }
 
@@ -153,31 +154,6 @@ class Feed extends Component {
     Actions.pop();
   }
 
-  renderScores(rounds, scores) {
-    if (rounds && scores) {
-      return (
-        <View>
-        { rounds.valueSeq().map((round) => {
-          console.log('---- round ----', round.id);
-          return (
-            <View key={`round_${round.id}`}>
-              { scores.valueSeq().map((score) => {
-                return (
-                  <View key={`score_${score.getId()}`} style={styles.playerScoreWrapper}>
-                    <Text style={styles.score}>{score.getValue()}</Text>
-                  </View>
-                );
-              })}
-            </View>
-          );
-        })}
-
-        </View>
-      );
-    }
-    return <View />;
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -193,7 +169,7 @@ class Feed extends Component {
         <View style={styles.content}>
           <View style={styles.colTotal}>
 
-            {this.state.game.getPlayerIds().map((player) => {
+            {this.state.players.map((player) => {
               return (
                 <View key={`total_${player}`} style={styles.playerScoreWrapper}>
                   <Text style={styles.playerScore}>{this.getPlayerScore(player)}</Text>
@@ -211,7 +187,7 @@ class Feed extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.colScore}>
-            <ScoreList rounds={this.state.rounds} />
+            <ScoreList players={this.state.players} rounds={this.state.rounds} />
           </View>
         </View>
       </View>
