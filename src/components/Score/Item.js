@@ -5,8 +5,6 @@ const {
   StyleSheet,
   View,
   Text,
-  TouchableOpacity,
-  Animated,
 } = ReactNative;
 
 const {
@@ -28,11 +26,6 @@ const styles = StyleSheet.create({
 });
 
 class GameList extends Component {
-
-  constructor() {
-    super();
-  }
-
 
   render() {
     const { score, roundId } = this.props;

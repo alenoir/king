@@ -66,7 +66,7 @@ class Feed extends Component {
       'Delete this game ?',
       [
         { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
-        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'Cancel' },
       ]
     );
   }

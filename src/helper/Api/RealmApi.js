@@ -86,7 +86,6 @@ const Api = {
   fetchScores(id) {
     const scores = realmScores.filtered(`gameId = "${id}"`)
     .map((score) => decodeScoreData(score));
-    console.log('--------', scores, id);
     return Promise.resolve(scores);
   },
 
