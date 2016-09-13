@@ -1,11 +1,14 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Immutable, { Map } from 'immutable';
 import React from 'react';
 import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
+
+import ScoreList from '../../components/Score/List';
 
 const {
   StyleSheet,
@@ -87,10 +90,15 @@ const styles = StyleSheet.create({
 
 class Feed extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const game = props.game.get('list').get(props.gameId);
 
     this.state = {
+      game,
+      scores: new Map(),
+      rounds: new Map(),
       players: [],
       currentRound: 0,
     };
@@ -98,10 +106,43 @@ class Feed extends Component {
 
   componentDidMount() {
     this.props.scoreActions.fetch(this.props.gameId);
+    this.props.gameActions.fetch(this.props.gameId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const scoreList = nextProps.score.get('list');
+
+    const scores = scoreList.filter((score) => {
+      return score.getGameId() === this.props.gameId;
+    });
+    const rounds = Immutable.Map(scores.reduce((result, item) => {
+      const newresult = result;
+      const scoreRound = newresult[item.getRound()] || { id: item.getRound(), scores: [] };
+      scoreRound.scores.push(item);
+      newresult[item.getRound()] = scoreRound;
+      return newresult;
+    }, {}));
+    const lastRound = parseInt(rounds.keySeq().max(), 10);
+    const game = nextProps.game.get('list').get(nextProps.gameId);
+
+    this.setState({
+      currentRound: lastRound + 1,
+      game,
+      rounds,
+      scores,
+    });
   }
 
   getPlayerScore(id) {
-    return 10;
+    const total = this.state.scores.reduce((result, item) => {
+      let newResult = result;
+      if (id === item.getPlayerId()) {
+        newResult += item.getValue();
+      }
+      return newResult;
+    }, 0);
+
+    return total;
   }
 
   handleAddScore() {
@@ -112,17 +153,32 @@ class Feed extends Component {
     Actions.pop();
   }
 
+  renderScores(rounds, scores) {
+    if (rounds && scores) {
+      return (
+        <View>
+        { rounds.valueSeq().map((round) => {
+          console.log('---- round ----', round.id);
+          return (
+            <View key={`round_${round.id}`}>
+              { scores.valueSeq().map((score) => {
+                return (
+                  <View key={`score_${score.getId()}`} style={styles.playerScoreWrapper}>
+                    <Text style={styles.score}>{score.getValue()}</Text>
+                  </View>
+                );
+              })}
+            </View>
+          );
+        })}
+
+        </View>
+      );
+    }
+    return <View />;
+  }
 
   render() {
-    const { game, gameId } = this.props;
-
-    const gameObject = game.get('list').get(gameId);
-    const scoreList = this.props.score.get('list');
-    const scores = scoreList.filter((score) => {
-      return score.getGameId() === this.props.gameId;
-    });
-
-    console.log(scores);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -132,12 +188,12 @@ class Feed extends Component {
           >
             <Text>Close</Text>
           </TouchableOpacity>
-          <Text style={styles.title}>{gameObject.getTitle()}</Text>
+          <Text style={styles.title}>{this.state.game.getTitle()}</Text>
         </View>
         <View style={styles.content}>
           <View style={styles.colTotal}>
 
-            {gameObject.getPlayerIds().map((player) => {
+            {this.state.game.getPlayerIds().map((player) => {
               return (
                 <View key={`total_${player}`} style={styles.playerScoreWrapper}>
                   <Text style={styles.playerScore}>{this.getPlayerScore(player)}</Text>
@@ -155,13 +211,7 @@ class Feed extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.colScore}>
-            {scores.valueSeq().map((score) => {
-              return (
-                <View key={`total_${score.getId()}`} style={styles.playerScoreWrapper}>
-                  <Text style={styles.score}>{score.getValue()}</Text>
-                </View>
-              );
-            })}
+            <ScoreList rounds={this.state.rounds} />
           </View>
         </View>
       </View>

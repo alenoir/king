@@ -106,6 +106,7 @@ class GameScore extends Component {
   }
 
   render() {
+    console.log(this.props.round);
     return (
       <View style={styles.container}>
         <TextInput
