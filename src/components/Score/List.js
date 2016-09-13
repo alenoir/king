@@ -61,7 +61,7 @@ class ScoreList extends Component {
                       const score = round.scores.filter((item) => {
                         return item.getPlayerId() === player;
                       })[0];
-                      console.log('--------score-------', score);
+
                       if (score) {
                         return (
                           <ScoreItem
