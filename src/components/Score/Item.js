@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class GameList extends Component {
+class GameItem extends Component {
 
   render() {
     const { score } = this.props;
@@ -54,9 +54,9 @@ class GameList extends Component {
 
 //
 
-GameList.propTypes = {
+GameItem.propTypes = {
   roundId: PropTypes.number,
   score: PropTypes.object,
 };
 
-module.exports = GameList;
+module.exports = GameItem;

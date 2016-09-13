@@ -171,6 +171,10 @@ class Feed extends Component {
     Actions.pop();
   }
 
+  handleEditScore(round) {
+    Actions.gameScore({ gameId: this.props.gameId, round: round.id, scores: round.scores });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -215,7 +219,11 @@ class Feed extends Component {
             />
           </View>
           <View style={styles.colScore}>
-            <ScoreList players={this.state.players} rounds={this.state.rounds} />
+            <ScoreList
+              players={this.state.players}
+              rounds={this.state.rounds}
+              handleRoundLongPress={(round) => this.handleEditScore(round)}
+            />
           </View>
         </View>
       </View>

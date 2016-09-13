@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 });
+
 const ACTION_TIMER = 400;
 
 class GameList extends Component {

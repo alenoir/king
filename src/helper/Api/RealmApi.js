@@ -90,9 +90,12 @@ const Api = {
   },
 
   createScore(data) {
+    console.log('-createScore------ ', data);
     return new Promise((resolve) => {
       const dataEncoded = encodeScoreData(data);
       realm.write(() => {
+        const existedScores = realmScores.filtered(`id = "${data.id}"`);
+        realm.delete(existedScores);
         const score = realm.create('Score', dataEncoded);
         resolve(decodeScoreData(score));
       });

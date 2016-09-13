@@ -121,23 +121,31 @@ class GameScore extends Component {
     const players = game.getPlayerIds();
 
     const playerScores = players.map((player) => {
+      let value = 0;
+      let score = null;
+      if (this.props.scores) {
+        const filteredCores = this.props.scores.filter((item) => {
+          return item.getPlayerId() === player;
+        });
+        score = filteredCores[0];
+        value = score.getValue() || 0;
+      }
       return {
         name: player,
-        score: 0,
+        score: value,
+        defaultScore: score,
       };
     });
+    const currentPlayer = playerScores.first();
 
     this.state = {
       players: playerScores,
       game,
-      currentPlayer: playerScores.first(),
+      currentPlayer,
       currentIndex: 0,
       buttonText: 'JOUEUR SUIVANT',
       title: game.getTitle(),
     };
-  }
-
-  componentDidMount() {
   }
 
   handleOnChange(text) {
@@ -155,12 +163,16 @@ class GameScore extends Component {
   }
 
   handleAddScore() {
+    let id = new Date().getTime().toString();
+    if (this.state.currentPlayer.defaultScore) {
+      id = this.state.currentPlayer.defaultScore.getId();
+    }
     const scoreObject = {
       playerId: this.state.currentPlayer.name,
       value: this.state.currentPlayer.score,
       round: this.props.round,
       gameId: this.props.gameId,
-      id: new Date().getTime().toString(),
+      id,
     };
     this.props.scoreActions.create(scoreObject);
     const nextIndex = this.state.currentIndex + 1;
@@ -231,6 +243,7 @@ class GameScore extends Component {
 }
 
 GameScore.propTypes = {
+  scores: PropTypes.array,
   round: PropTypes.number.isRequired,
   gameId: PropTypes.string.isRequired,
   game: PropTypes.object.isRequired,

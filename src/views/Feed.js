@@ -68,8 +68,8 @@ class Feed extends Component {
       'Warnig',
       'Delete this game ?',
       [
-        { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
         { text: 'Cancel' },
+        { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
       ]
     );
   }

@@ -8,6 +8,8 @@ const {
   View,
   ScrollView,
   Text,
+  TouchableOpacity,
+  Animated,
 } = ReactNative;
 
 const {
@@ -41,7 +43,42 @@ const styles = StyleSheet.create({
   },
 });
 
+const ACTION_TIMER = 400;
+
 class ScoreList extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      pressAction: new Animated.Value(0),
+    };
+  }
+
+  componentWillMount() {
+    this.progressValue = 0;
+    this.state.pressAction.addListener((v) => { this.progressValue = v.value; });
+  }
+
+  handlePressIn(round) {
+    Animated.timing(this.state.pressAction, {
+      duration: ACTION_TIMER,
+      toValue: 1,
+    }).start(() => this.animationActionComplete(round));
+  }
+
+  handlePressOut() {
+    Animated.timing(this.state.pressAction, {
+      duration: 0,
+      toValue: 0,
+    }).start();
+  }
+
+  animationActionComplete(round) {
+    if (this.progressValue === 1) {
+      this.props.handleRoundLongPress(round);
+    }
+  }
+
   render() {
     const { rounds, players } = this.props;
     const sortedRounds = rounds.sort(
@@ -56,27 +93,32 @@ class ScoreList extends Component {
             { sortedRounds.valueSeq().map((round) => {
               return (
                 <View style={styles.roundContainer} key={`round_${round.id}`}>
-                  <Text style={styles.roundTitle}>
-                    {round.id}
-                  </Text>
-                  <View style={styles.scoreContainer}>
-                    { players.map((player, key) => {
-                      const score = round.scores.filter((item) => {
-                        return item.getPlayerId() === player;
-                      })[0];
+                  <TouchableOpacity
+                    style={styles.closeButton}
+                    onPressIn={() => this.handlePressIn(round)}
+                    onPressOut={() => this.handlePressOut()}
+                  >
+                    <Text style={styles.roundTitle}>
+                      {round.id}
+                    </Text>
+                    <View style={styles.scoreContainer}>
+                      { players.map((player, key) => {
+                        const score = round.scores.filter((item) => {
+                          return item.getPlayerId() === player;
+                        })[0];
 
-                      if (score) {
-                        return (
-                          <ScoreItem
-                            score={score}
-                            key={`score_${score.getId()}`}
-                          />
-                        );
-                      }
-                      return <View key={`score_empty_${key}`} />;
-                    })}
-                  </View>
-
+                        if (score) {
+                          return (
+                            <ScoreItem
+                              score={score}
+                              key={`score_${score.getId()}`}
+                            />
+                          );
+                        }
+                        return <View key={`score_empty_${key}`} />;
+                      })}
+                    </View>
+                  </TouchableOpacity>
                 </View>
               );
             })}
@@ -92,6 +134,7 @@ ScoreList.propTypes = {
   style: PropTypes.number,
   rounds: PropTypes.object,
   players: PropTypes.object,
+  handleRoundLongPress: PropTypes.func,
 };
 
 module.exports = ScoreList;
