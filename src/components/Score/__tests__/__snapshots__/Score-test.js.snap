@@ -1,0 +1,66 @@
+exports[`Game render Item 1`] = `
+<View
+  style={undefined}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#FFFFFF",
+        "flex": 1,
+        "fontFamily": "Montserrat-Light",
+        "textAlign": "center"
+      }
+    }>
+    12
+  </Text>
+</View>
+`;
+
+exports[`Game render List 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row"
+    }
+  }>
+  <ScrollView
+    horizontal={true}>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flex": 1,
+          "flexDirection": "row"
+        }
+      }>
+      <View
+        style={
+          Object {
+            "width": 50
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "textAlign": "center"
+            }
+          }>
+          0
+        </Text>
+        <View
+          style={Object {}}>
+          <View />
+          <View />
+        </View>
+      </View>
+    </View>
+  </ScrollView>
+</View>
+`;
