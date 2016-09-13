@@ -10,10 +10,13 @@ import scoreActions from '../../actions/scoreActions';
 
 import ScoreList from '../../components/Score/List';
 
+import CloseIcon from '../../assets/images/ic_close.png';
+
 const {
   StyleSheet,
   View,
   Text,
+  Image,
   TouchableOpacity,
 } = ReactNative;
 
@@ -31,15 +34,30 @@ const styles = StyleSheet.create({
 
   header: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  title: {
-    flex: 1,
-  },
+
   closeButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeButtonIcon: {
+    width: 20,
+    height: 20,
+  },
+  headerTitle: {
+    flex: 5,
+    fontFamily: 'Montserrat-Black',
+    fontSize: 16,
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
+
+  headerAfter: {
     flex: 1,
   },
 
@@ -162,9 +180,13 @@ class Feed extends Component {
             style={styles.closeButton}
             onPress={(() => this.handleClose())}
           >
-            <Text>Close</Text>
+            <Image
+              style={styles.closeButtonIcon}
+              source={CloseIcon}
+            />
           </TouchableOpacity>
-          <Text style={styles.title}>{this.state.game.getTitle()}</Text>
+          <Text style={styles.headerTitle}>{this.state.game.getTitle()}</Text>
+          <View style={styles.headerAfter} />
         </View>
         <View style={styles.content}>
           <View style={styles.colTotal}>
