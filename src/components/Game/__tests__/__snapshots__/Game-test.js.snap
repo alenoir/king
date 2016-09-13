@@ -118,7 +118,7 @@ exports[`Game render Item 1`] = `
             "fontFamily": "Montserrat-Light"
           }
         }>
-        Sat Dec 12 1987 00:00:00 GMT+0100 (CET)
+        Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
       </Text>
       <Text
         accessible={true}
@@ -203,7 +203,7 @@ exports[`Game render List 1`] = `
                 "fontFamily": "Montserrat-Light"
               }
             }>
-            12/11/1987, 6:00:00 PM
+            Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
           </Text>
           <Text
             accessible={true}
