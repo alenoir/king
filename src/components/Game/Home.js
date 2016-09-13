@@ -8,7 +8,6 @@ const {
 } = ReactNative;
 
 const {
-  PropTypes,
   Component,
 } = React;
 

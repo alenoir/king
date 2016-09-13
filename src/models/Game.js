@@ -5,9 +5,16 @@ const GameRecord = Record({
   title: null,
   playerIds: new List(),
   winnerId: null,
+  looserId: null,
   createdAt: new Date(),
   closedAt: null,
 });
+
+const pad = (num, size) => {
+  let s = `${num}`;
+  while (s.length < size) s = `0${s}`;
+  return s;
+};
 
 class Game extends GameRecord {
   getId() {
@@ -15,7 +22,7 @@ class Game extends GameRecord {
   }
 
   getTitle() {
-    return this.get('title');
+    return `Partie #${pad(this.get('id'), 4)}`;
   }
 
   getPlayerIds() {
@@ -23,6 +30,10 @@ class Game extends GameRecord {
   }
 
   getWinnerId() {
+    return this.get('winnerId');
+  }
+
+  getLooserId() {
     return this.get('winnerId');
   }
 

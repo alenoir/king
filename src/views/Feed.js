@@ -11,6 +11,7 @@ import gameActions from '../actions/gameActions';
 const {
   StyleSheet,
   View,
+  Alert,
 } = ReactNative;
 
 const {
@@ -51,13 +52,37 @@ class Feed extends Component {
     Actions.gameNew();
   }
 
+  handleItemSelected(id) {
+    Actions.gameHome({ gameId: id });
+  }
+
+  handleRemoveItem(id) {
+    this.props.gameActions.remove(id);
+  }
+
+  handleItemLongPress(id) {
+    Alert.alert(
+      'Warnig',
+      'Delete this game ?',
+      [
+        { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
+        { text: 'Cancel' },
+      ]
+    );
+  }
+
   render() {
     const { game } = this.props;
 
     return (
       <View style={styles.container}>
         <GameAddButton style={styles.button} text="Add" onPress={(() => this.handleAddGame())} />
-        <GameList style={styles.list} games={game.get('list')} />
+        <GameList
+          onItemLongPress={(id) => this.handleItemLongPress(id)}
+          onItemSelected={(id) => this.handleItemSelected(id)}
+          style={styles.list}
+          games={game.get('list')}
+        />
       </View>
     );
   }

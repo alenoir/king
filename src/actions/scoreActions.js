@@ -5,9 +5,9 @@ import {
 } from '../constants/ActionTypes';
 
 module.exports = {
-  fetch: () => {
+  fetch: (gameId) => {
     return (dispatch) => {
-      return ApiHelper.fetchScores().then((scores) => {
+      return ApiHelper.fetchScores(gameId).then((scores) => {
         const payload = {
           scores,
         };

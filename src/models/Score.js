@@ -5,7 +5,7 @@ const ScoreRecord = Record({
   playerId: null,
   value: 0,
   round: 0,
-  king: false,
+  gameId: null,
   createdAt: null,
 });
 
@@ -18,16 +18,16 @@ class Score extends ScoreRecord {
     return this.get('playerId');
   }
 
+  getGameId() {
+    return this.get('gameId');
+  }
+
   getValue() {
     return this.get('value') || 0;
   }
 
   getRound() {
     return this.get('round') || 0;
-  }
-
-  isKing() {
-    return this.get('king') || false;
   }
 }
 

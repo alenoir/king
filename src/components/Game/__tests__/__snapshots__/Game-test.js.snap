@@ -63,18 +63,77 @@ exports[`Game render Item 1`] = `
       "flex": 1
     }
   }>
-  <Text
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function bound touchableHandleResponderGrant]}
+    onResponderMove={[Function bound touchableHandleResponderMove]}
+    onResponderRelease={[Function bound touchableHandleResponderRelease]}
+    onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+    onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+    onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
     style={
       Object {
-        "color": "#ffffff"
+        "opacity": 1
       }
-    }>
-    id1
-    id2
-  </Text>
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "flex": 1
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        Partie #
+        id1
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Light"
+          }
+        }>
+        id1
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
@@ -89,18 +148,77 @@ exports[`Game render List 1`] = `
           "flex": 1
         }
       }>
-      <Text
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function bound touchableHandleResponderGrant]}
+        onResponderMove={[Function bound touchableHandleResponderMove]}
+        onResponderRelease={[Function bound touchableHandleResponderRelease]}
+        onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+        onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
         style={
           Object {
-            "color": "#ffffff"
+            "opacity": 1
           }
-        }>
-        id1
-        id2
-      </Text>
+        }
+        testID={undefined}>
+        <View
+          style={
+            Object {
+              "flex": 1
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            Partie #
+            id1
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Montserrat-Light"
+              }
+            }>
+            id1
+          </Text>
+        </View>
+      </View>
     </View>
   </ScrollView>
 </View>

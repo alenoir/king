@@ -26,8 +26,8 @@ describe('Game', () => {
       id: 'id1',
       title: 'title game',
       playerIds: ['id1', 'id2'],
-      createdAt: new Date(),
-      closedAt: new Date(),
+      createdAt: new Date('Feb 28 2013 19:00:00 EST'),
+      closedAt: new Date('Feb 28 2013 19:00:00 EST'),
       winnerId: 'id1',
     };
     const game = new Game(data);
@@ -47,8 +47,8 @@ describe('Game', () => {
       id: 'id1',
       title: 'title game',
       playerIds: ['id1', 'id2'],
-      createdAt: new Date(),
-      closedAt: new Date(),
+      createdAt: new Date('Feb 28 2013 19:00:00 EST'),
+      closedAt: new Date('Feb 28 2013 19:00:00 EST'),
       winnerId: 'id1',
     };
     const game = new Game(data);

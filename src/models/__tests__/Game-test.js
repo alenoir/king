@@ -5,7 +5,6 @@ describe('Game model', () => {
   it('should return valid Game object', () => {
     const data = {
       id: 'id1',
-      title: 'title game',
       playerIds: ['id1', 'id2'],
       createdAt: new Date(),
       closedAt: new Date(),
@@ -14,7 +13,7 @@ describe('Game model', () => {
     const object = new Game(data);
 
     expect(object.getId()).toEqual(data.id);
-    expect(object.getTitle()).toEqual(data.title);
+    expect(object.getTitle()).toEqual(`Partie #0${data.id}`);
     expect(object.getCreatedAt()).toEqual(data.createdAt);
     expect(object.getClosedAt()).toEqual(data.closedAt);
     expect(object.getWinnerId()).toEqual(data.winnerId);

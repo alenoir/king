@@ -76,14 +76,20 @@ describe('Game Actions', () => {
   });
 
   it('sould remove game', () => {
+    const id = 'id1';
     const expectedActions = [
-      { type: types.GAME_REMOVE, payload: { id: 'id1' } },
+      { type: types.GAME_REMOVE, payload: { id } },
     ];
+    const stub = sinon.stub(ApiHelper, 'removeGame', (result) => {
+      return Promise.resolve(result);
+    });
+
     const store = mockStore({});
 
     return store.dispatch(actions.remove('id1'))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
+        sinon.assert.called(stub);
       });
   });
 });

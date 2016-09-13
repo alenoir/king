@@ -17,6 +17,10 @@ describe('Api', () => {
     expect(Api.updateGame).toBeDefined();
   });
 
+  it('should find "removeGame" method', () => {
+    expect(Api.removeGame).toBeDefined();
+  });
+
 
   it('should find "fetchPlayers" method', () => {
     expect(Api.fetchPlayers).toBeDefined();
