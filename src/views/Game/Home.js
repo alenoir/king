@@ -9,15 +9,18 @@ import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
 
 import ScoreList from '../../components/Score/List';
+import Header from '../../components/Header';
 
 import CloseIcon from '../../assets/images/ic_close.png';
+import AddIcon from '../../assets/images/ic_add.png';
+import DashedLine from '../../assets/images/dashed_line.png';
 
 const {
   StyleSheet,
   View,
   Text,
-  Image,
   TouchableOpacity,
+  Image,
 } = ReactNative;
 
 const {
@@ -32,77 +35,73 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
 
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  closeButton: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonIcon: {
-    width: 20,
-    height: 20,
-  },
-  headerTitle: {
-    flex: 5,
-    fontFamily: 'Montserrat-Black',
-    fontSize: 16,
-    justifyContent: 'center',
-    textAlign: 'center',
-    color: '#FFFFFF',
-  },
-
-  headerAfter: {
-    flex: 1,
-  },
-
   content: {
     flex: 8,
     flexDirection: 'row',
   },
   colTotal: {
-    flex: 2,
+    flex: 4,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'column',
+    paddingTop: 40,
   },
   colAdd: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: 'white',
   },
   colScore: {
-    flex: 10,
+    flex: 9,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
+    paddingTop: 40,
   },
+
   addButton: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  addButtonIconWrapper: {
+    flex: 1,
+  },
+  addButtonIcon: {
+    width: 20,
+    height: 20,
+  },
+  addButtonDashWrapper: {
+    flex: 10,
+  },
+  addButtonDash: {
+    flex: 1,
+    width: 10,
+    flexDirection: 'column',
+  },
 
   playerScoreWrapper: {
-
+    marginLeft: 20,
+    marginBottom: 30,
+    height: 50,
   },
   playerScore: {
-    color: 'white',
+    fontFamily: 'Montserrat-Black',
+    fontSize: 30,
+    color: '#ffffff',
   },
   playerName: {
-    color: 'white',
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 12,
+    color: '#ffffff',
   },
 
-  score: {
-    color: 'white',
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'stretch',
+    marginTop: 10,
   },
 });
 
@@ -118,7 +117,7 @@ class Feed extends Component {
       scores: new Map(),
       rounds: new Map(),
       players: new List(),
-      currentRound: 0,
+      currentRound: 1,
     };
   }
 
@@ -140,9 +139,10 @@ class Feed extends Component {
       newresult[item.getRound()] = scoreRound;
       return newresult;
     }, {}));
-    const lastRound = parseInt(rounds.keySeq().max(), 10);
+    const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10);
     const game = nextProps.game.get('list').get(nextProps.gameId);
     const players = game.getPlayerIds();
+    console.log('lastRound', lastRound);
     this.setState({
       currentRound: lastRound + 1,
       game,
@@ -175,26 +175,23 @@ class Feed extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={(() => this.handleClose())}
-          >
-            <Image
-              style={styles.closeButtonIcon}
-              source={CloseIcon}
-            />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>{this.state.game.getTitle()}</Text>
-          <View style={styles.headerAfter} />
-        </View>
+        <Header
+          title={this.state.game.getTitle()}
+          onLeftButtonPress={(() => this.handleClose())}
+          buttonLeftImage={CloseIcon}
+        />
         <View style={styles.content}>
           <View style={styles.colTotal}>
 
             {this.state.players.map((player) => {
               return (
                 <View key={`total_${player}`} style={styles.playerScoreWrapper}>
-                  <Text style={styles.playerScore}>{this.getPlayerScore(player)}</Text>
+                  <Text
+                    style={styles.playerScore}
+                    numberOfLines={1}
+                  >
+                    {this.getPlayerScore(player)}
+                  </Text>
                   <Text style={styles.playerName}>{player}</Text>
                 </View>
               );
@@ -205,8 +202,18 @@ class Feed extends Component {
               style={styles.addButton}
               onPress={(() => this.handleAddScore())}
             >
-              <Text>Add Score</Text>
+              <View style={styles.addButtonIconWrapper}>
+                <Image
+                  style={styles.addButtonIcon}
+                  source={AddIcon}
+                />
+              </View>
+              <View style={styles.addButtonDashWrapper} />
             </TouchableOpacity>
+            <Image
+              style={styles.backgroundImage}
+              source={DashedLine}
+            />
           </View>
           <View style={styles.colScore}>
             <ScoreList players={this.state.players} rounds={this.state.rounds} />

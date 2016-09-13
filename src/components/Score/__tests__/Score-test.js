@@ -8,7 +8,7 @@ import Game from '../../../models/Game';
 import ScoreList from '../List';
 import ScoreItem from '../Item';
 
-describe('Game', () => {
+describe('Score', () => {
   it('render List', () => {
     const gameData = {
       id: '1',

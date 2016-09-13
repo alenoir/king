@@ -1,4 +1,4 @@
-exports[`Game render Item 1`] = `
+exports[`Score render Item 1`] = `
 <View
   style={undefined}>
   <Text
@@ -18,7 +18,7 @@ exports[`Game render Item 1`] = `
 </View>
 `;
 
-exports[`Game render List 1`] = `
+exports[`Score render List 1`] = `
 <View
   style={
     Object {

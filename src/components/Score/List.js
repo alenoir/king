@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
   },
 
   scoreContainer: {
-
+    flex: 1,
+    flexDirection: 'column',
   },
 });
 
@@ -44,8 +45,10 @@ class ScoreList extends Component {
   render() {
     const { rounds, players } = this.props;
     const sortedRounds = rounds.sort(
-      (a, b) => a.id < b.id
-    );
+      (a, b) => {
+        return parseInt(a.id, 10) > parseInt(b.id, 10);
+      }
+    ).reverse();
     return (
       <View style={styles.scrollviewWrapper}>
         <ScrollView horizontal>

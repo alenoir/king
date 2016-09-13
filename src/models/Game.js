@@ -22,7 +22,7 @@ class Game extends GameRecord {
   }
 
   getTitle() {
-    return `Partie #${pad(this.get('id'), 4)}`;
+    return `Partie #${pad(this.get('id'), 3)}`;
   }
 
   getPlayerIds() {

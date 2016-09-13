@@ -61,7 +61,6 @@ exports[`Game render Item 1`] = `
   style={
     Object {
       "alignItems": "flex-start",
-      "backgroundColor": "#FF0000",
       "flex": 1,
       "height": 40,
       "justifyContent": "center",
@@ -160,7 +159,6 @@ exports[`Game render List 1`] = `
       style={
         Object {
           "alignItems": "flex-start",
-          "backgroundColor": "#FF0000",
           "flex": 1,
           "height": 40,
           "justifyContent": "center",

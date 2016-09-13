@@ -97,7 +97,6 @@ class Header extends Component {
           />
         </TouchableOpacity>
       </View>
-
     );
   }
 
@@ -105,11 +104,11 @@ class Header extends Component {
 
 Header.propTypes = {
   big: PropTypes.bool,
-  title: PropTypes.object,
-  onLeftButtonPress: PropTypes.object,
-  onRightButtonPress: PropTypes.object,
-  buttonLeftImage: PropTypes.object,
-  buttonRightImage: PropTypes.object,
+  title: PropTypes.string,
+  onLeftButtonPress: PropTypes.func,
+  onRightButtonPress: PropTypes.func,
+  buttonLeftImage: PropTypes.number,
+  buttonRightImage: PropTypes.number,
 };
 
 module.exports = Header;
