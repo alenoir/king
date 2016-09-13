@@ -105,7 +105,7 @@ exports[`Game render Item 1`] = `
             "fontSize": 19
           }
         }>
-        Partie #0id1
+        Partie #id1
       </Text>
     </View>
     <View
@@ -203,7 +203,7 @@ exports[`Game render List 1`] = `
                 "fontSize": 19
               }
             }>
-            Partie #0id1
+            Partie #id1
           </Text>
         </View>
         <View

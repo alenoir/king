@@ -1,17 +1,27 @@
 exports[`Score render Item 1`] = `
 <View
-  style={undefined}>
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 50,
+      "justifyContent": "center",
+      "marginBottom": 30
+    }
+  }>
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
     style={
-      Object {
-        "color": "#FFFFFF",
-        "flex": 1,
-        "fontFamily": "Montserrat-Light",
-        "textAlign": "center"
-      }
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Montserrat-Regular",
+          "fontSize": 22,
+          "opacity": 0.8,
+          "textAlign": "center"
+        }
+      ]
     }>
     12
   </Text>
@@ -55,7 +65,12 @@ exports[`Score render List 1`] = `
           0
         </Text>
         <View
-          style={Object {}}>
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "column"
+            }
+          }>
           <View />
           <View />
         </View>

@@ -142,7 +142,6 @@ class Feed extends Component {
     const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10);
     const game = nextProps.game.get('list').get(nextProps.gameId);
     const players = game.getPlayerIds();
-    console.log('lastRound', lastRound);
     this.setState({
       currentRound: lastRound + 1,
       game,
