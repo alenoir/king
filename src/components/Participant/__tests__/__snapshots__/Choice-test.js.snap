@@ -29,6 +29,7 @@ exports[`Participant Choice render 1`] = `
         autoCorrect={false}
         autoFocus={true}
         onChangeText={[Function onChangeText]}
+        onEndEditing={[Function onEndEditing]}
         onSubmitEditing={[Function onSubmitEditing]}
         returnKeyType="next"
         style={

@@ -66,6 +66,7 @@ class Feed extends Component {
     this.state = {
       selectedPlayers: [],
       buttonText: 'CRÉER LA PARTIE',
+      valid: false,
     };
   }
 
@@ -73,20 +74,28 @@ class Feed extends Component {
   }
 
   handlePlayersChange(players) {
+    let newButtonText = 'CRÉER LA PARTIE';
+    if (players.length > 1) {
+      newButtonText = 'CRÉER LA PARTIE';
+    }
     this.setState({
       selectedPlayers: players,
+      buttonText: newButtonText,
+      valid: players.length > 1,
     });
   }
 
   handleNext() {
-    const game = {
-      id: new Date().getTime().toString(),
-      title: '',
-      playerIds: this.state.selectedPlayers,
-    };
-    this.props.gameActions.create(game).then(() => {
-      Actions.gameHome({ gameId: game.id });
-    });
+    if (this.state.selectedPlayers.length > 1) {
+      const game = {
+        id: new Date().getTime().toString(),
+        title: '',
+        playerIds: this.state.selectedPlayers,
+      };
+      this.props.gameActions.create(game).then(() => {
+        Actions.gameHome({ gameId: game.id });
+      });
+    }
   }
 
   handleClose() {
@@ -110,6 +119,7 @@ class Feed extends Component {
         <TouchableOpacity
           style={styles.addButton}
           onPress={(() => this.handleNext())}
+          disabled={!this.state.valid}
         >
           <View style={styles.addButtonBefore} />
           <Text style={styles.addButtonText}>{this.state.buttonText}</Text>

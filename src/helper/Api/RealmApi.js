@@ -51,7 +51,7 @@ const Api = {
   createGame(data) {
     return new Promise((resolve) => {
       const dataEncoded = encodeGameData(data);
-      const lastGames = realmGames.sorted('id', true);
+      const lastGames = realmGames.sorted('createdAt', true);
       let id = '1';
       if (lastGames.length !== 0) {
         let intId = parseInt(lastGames[0].id, 10);

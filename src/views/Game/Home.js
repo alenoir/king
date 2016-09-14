@@ -4,6 +4,7 @@ import Immutable, { Map, List } from 'immutable';
 import React from 'react';
 import ReactNative from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
+import dismissKeyboard from 'dismissKeyboard'; // eslint-disable-line
 
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
@@ -133,6 +134,7 @@ class Feed extends Component {
   componentDidMount() {
     this.props.scoreActions.fetch(this.props.gameId);
     this.props.gameActions.fetch(this.props.gameId);
+    dismissKeyboard();
   }
 
   componentWillReceiveProps(nextProps) {

@@ -32,7 +32,13 @@ exports[`Header render big 1`] = `
     testID={undefined}>
     <Image
       source={1}
-      style={undefined} />
+      style={
+        Object {
+          "height": 20,
+          "margin": 25,
+          "width": 20
+        }
+      } />
   </View>
   <Text
     accessible={true}
@@ -76,7 +82,13 @@ exports[`Header render big 1`] = `
     testID={undefined}>
     <Image
       source={1}
-      style={undefined} />
+      style={
+        Object {
+          "height": 20,
+          "margin": 25,
+          "width": 20
+        }
+      } />
   </View>
 </View>
 `;
@@ -115,7 +127,13 @@ exports[`Header render small 1`] = `
     testID={undefined}>
     <Image
       source={1}
-      style={undefined} />
+      style={
+        Object {
+          "height": 20,
+          "margin": 25,
+          "width": 20
+        }
+      } />
   </View>
   <Text
     accessible={true}
@@ -159,7 +177,13 @@ exports[`Header render small 1`] = `
     testID={undefined}>
     <Image
       source={1}
-      style={undefined} />
+      style={
+        Object {
+          "height": 20,
+          "margin": 25,
+          "width": 20
+        }
+      } />
   </View>
 </View>
 `;
