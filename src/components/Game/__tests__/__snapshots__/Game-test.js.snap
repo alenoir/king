@@ -60,12 +60,9 @@ exports[`Game render Item 1`] = `
 <View
   style={
     Object {
-      "alignItems": "flex-start",
+      "alignItems": "stretch",
       "flex": 1,
-      "height": 40,
       "justifyContent": "center",
-      "marginBottom": 15,
-      "marginTop": 15,
       "paddingLeft": 30
     }
   }>
@@ -84,16 +81,15 @@ exports[`Game render Item 1`] = `
     onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
     style={
       Object {
+        "alignItems": "stretch",
+        "height": 70,
+        "justifyContent": "center",
         "opacity": 1
       }
     }
     testID={undefined}>
     <View
-      style={
-        Object {
-          "flex": 1
-        }
-      }>
+      style={Object {}}>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -101,6 +97,7 @@ exports[`Game render Item 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "flex": 1,
             "fontFamily": "Montserrat-Light",
             "fontSize": 19
           }
@@ -158,12 +155,9 @@ exports[`Game render List 1`] = `
     <View
       style={
         Object {
-          "alignItems": "flex-start",
+          "alignItems": "stretch",
           "flex": 1,
-          "height": 40,
           "justifyContent": "center",
-          "marginBottom": 15,
-          "marginTop": 15,
           "paddingLeft": 30
         }
       }>
@@ -182,16 +176,15 @@ exports[`Game render List 1`] = `
         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
         style={
           Object {
+            "alignItems": "stretch",
+            "height": 70,
+            "justifyContent": "center",
             "opacity": 1
           }
         }
         testID={undefined}>
         <View
-          style={
-            Object {
-              "flex": 1
-            }
-          }>
+          style={Object {}}>
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -199,6 +192,7 @@ exports[`Game render List 1`] = `
             style={
               Object {
                 "color": "#ffffff",
+                "flex": 1,
                 "fontFamily": "Montserrat-Light",
                 "fontSize": 19
               }
