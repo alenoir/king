@@ -89,6 +89,10 @@ class Feed extends Component {
     });
   }
 
+  handleClose() {
+    Actions.pop();
+  }
+
   render() {
     const { player } = this.props;
     return (
