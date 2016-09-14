@@ -1,0 +1,2 @@
+json_key_file "android/app/credentials.json"
+package_name "com.coverage.king"
