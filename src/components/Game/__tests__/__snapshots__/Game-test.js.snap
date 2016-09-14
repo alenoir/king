@@ -99,7 +99,8 @@ exports[`Game render Item 1`] = `
             "color": "#ffffff",
             "flex": 1,
             "fontFamily": "Montserrat-Light",
-            "fontSize": 19
+            "fontSize": 19,
+            "marginBottom": 5
           }
         }>
         Partie #id1
@@ -108,39 +109,77 @@ exports[`Game render Item 1`] = `
     <View
       style={
         Object {
+          "alignItems": "flex-start",
           "flex": 1,
-          "flexDirection": "row"
+          "flexDirection": "row",
+          "justifyContent": "flex-start"
         }
       }>
       <View
-        style={undefined}>
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "marginRight": 13
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Array [
+              undefined,
+              undefined
+            ]
+          } />
         <Text
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Montserrat-Light"
-            }
+            Array [
+              Object {
+                "color": "#F8E71C"
+              },
+              Object {
+                "fontFamily": "Montserrat-SemiBold",
+                "fontSize": 12
+              }
+            ]
           }>
           id1
         </Text>
       </View>
       <View
-        style={undefined}>
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "marginRight": 13
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Array [
+              undefined,
+              undefined
+            ]
+          } />
         <Text
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Montserrat-Light"
-            }
-          }>
-          id1
-        </Text>
+            Array [
+              Object {
+                "color": "#9B9B9B"
+              },
+              Object {
+                "fontFamily": "Montserrat-SemiBold",
+                "fontSize": 12
+              }
+            ]
+          } />
       </View>
     </View>
   </View>
@@ -194,7 +233,8 @@ exports[`Game render List 1`] = `
                 "color": "#ffffff",
                 "flex": 1,
                 "fontFamily": "Montserrat-Light",
-                "fontSize": 19
+                "fontSize": 19,
+                "marginBottom": 5
               }
             }>
             Partie #id1
@@ -203,39 +243,77 @@ exports[`Game render List 1`] = `
         <View
           style={
             Object {
+              "alignItems": "flex-start",
               "flex": 1,
-              "flexDirection": "row"
+              "flexDirection": "row",
+              "justifyContent": "flex-start"
             }
           }>
           <View
-            style={undefined}>
+            style={
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "marginRight": 13
+              }
+            }>
+            <Image
+              source={1}
+              style={
+                Array [
+                  undefined,
+                  undefined
+                ]
+              } />
             <Text
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
               style={
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Montserrat-Light"
-                }
+                Array [
+                  Object {
+                    "color": "#F8E71C"
+                  },
+                  Object {
+                    "fontFamily": "Montserrat-SemiBold",
+                    "fontSize": 12
+                  }
+                ]
               }>
               id1
             </Text>
           </View>
           <View
-            style={undefined}>
+            style={
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "marginRight": 13
+              }
+            }>
+            <Image
+              source={1}
+              style={
+                Array [
+                  undefined,
+                  undefined
+                ]
+              } />
             <Text
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
               style={
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Montserrat-Light"
-                }
-              }>
-              id1
-            </Text>
+                Array [
+                  Object {
+                    "color": "#9B9B9B"
+                  },
+                  Object {
+                    "fontFamily": "Montserrat-SemiBold",
+                    "fontSize": 12
+                  }
+                ]
+              } />
           </View>
         </View>
       </View>

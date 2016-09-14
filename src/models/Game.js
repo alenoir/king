@@ -34,7 +34,7 @@ class Game extends GameRecord {
   }
 
   getLooserId() {
-    return this.get('winnerId');
+    return this.get('looserId');
   }
 
   getCreatedAt() {

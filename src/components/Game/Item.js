@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactNative from 'react-native';
 
+import WinnerIcon from '../../assets/images/ic_winner.png';
+import LooserIcon from '../../assets/images/ic_looser.png';
+
 const {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   Animated,
+  Image,
 } = ReactNative;
 
 const {
@@ -35,19 +39,30 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Light',
     fontSize: 19,
     color: '#ffffff',
+    marginBottom: 5,
   },
 
   subTitleWrapper: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  },
+
+  userWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginRight: 13,
+  },
+  user: {
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 12,
   },
   winner: {
-    fontFamily: 'Montserrat-Light',
-    color: '#ffffff',
+    color: '#F8E71C',
   },
   looser: {
-    fontFamily: 'Montserrat-Light',
-    color: '#ffffff',
+    color: '#9B9B9B',
   },
 });
 
@@ -97,11 +112,19 @@ class GameList extends Component {
     if (game.getWinnerId()) {
       return (
         <View style={styles.subTitleWrapper}>
-          <View style={styles.winnerWrappr}>
-            <Text style={styles.winner}>{game.getWinnerId()}</Text>
+          <View style={styles.userWrapper}>
+            <Image
+              style={[styles.winnerIcon, styles.icon]}
+              source={WinnerIcon}
+            />
+            <Text style={[styles.winner, styles.user]}>{game.getWinnerId()}</Text>
           </View>
-          <View style={styles.looserWrapper}>
-            <Text style={styles.looser}>{game.getLooserId()}</Text>
+          <View style={styles.userWrapper}>
+            <Image
+              style={[styles.looserIcon, styles.icon]}
+              source={LooserIcon}
+            />
+            <Text style={[styles.looser, styles.user]}>{game.getLooserId()}</Text>
           </View>
         </View>
       );

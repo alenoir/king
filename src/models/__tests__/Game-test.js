@@ -9,6 +9,7 @@ describe('Game model', () => {
       createdAt: new Date(),
       closedAt: new Date(),
       winnerId: 'id1',
+      looserId: 'id2',
     };
     const object = new Game(data);
 
@@ -17,6 +18,7 @@ describe('Game model', () => {
     expect(object.getCreatedAt()).toEqual(data.createdAt);
     expect(object.getClosedAt()).toEqual(data.closedAt);
     expect(object.getWinnerId()).toEqual(data.winnerId);
+    expect(object.getLooserId()).toEqual(data.looserId);
     expect(typeof object.getPlayerIds()).toEqual(typeof new List());
   });
 });

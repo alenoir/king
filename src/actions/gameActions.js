@@ -27,9 +27,9 @@ module.exports = {
     };
   },
 
-  update: (id, data) => {
+  update: (data) => {
     return (dispatch) => {
-      return ApiHelper.updateGame(id, data).then((game) => {
+      return ApiHelper.updateGame(data).then((game) => {
         const payload = {
           games: [game],
         };

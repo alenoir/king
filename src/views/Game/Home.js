@@ -126,9 +126,10 @@ class Feed extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const scoreList = nextProps.score.get('list');
+    const scoreList = this.props.score.get('list');
+    const nextScoreList = nextProps.score.get('list');
 
-    const scores = scoreList.filter((score) => {
+    const scores = nextScoreList.filter((score) => {
       return score.getGameId() === this.props.gameId;
     });
     const rounds = Immutable.Map(scores.reduce((result, item) => {
@@ -141,13 +142,22 @@ class Feed extends Component {
     const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10) || 0;
     const game = nextProps.game.get('list').get(nextProps.gameId);
     const players = game.getPlayerIds();
+
     this.setState({
       currentRound: lastRound + 1,
       game,
       rounds,
       scores,
       players,
+      winnerId: null,
+      looserId: null,
+      winnerTotal: null,
+      looserTotal: null,
     });
+
+    if (scoreList !== nextScoreList) {
+      this.updateWinner(game, scores);
+    }
   }
 
   getPlayerScore(id) {
@@ -160,6 +170,43 @@ class Feed extends Component {
     }, 0);
 
     return total;
+  }
+
+  updateWinner(game, scores) {
+    let winnerId = null;
+    let looserId = null;
+    let winnerTotal = null;
+    let looserTotal = null;
+    let updatedGame = game;
+
+    const players = game.getPlayerIds();
+
+    players.forEach((player) => {
+      const total = scores.reduce((result, item) => {
+        let newResult = result;
+        if (player === item.getPlayerId()) {
+          newResult += item.getValue();
+        }
+        return newResult;
+      }, 0);
+
+      if (!winnerTotal || winnerTotal > total) {
+        winnerTotal = total;
+        winnerId = player;
+      }
+
+      if (!looserTotal || looserTotal < total) {
+        looserTotal = total;
+        looserId = player;
+      }
+    });
+
+    if (game.getWinnerId() !== winnerId || game.getLooserId() !== looserId) {
+      updatedGame = updatedGame.set('looserId', looserId);
+      updatedGame = updatedGame.set('winnerId', winnerId);
+
+      this.props.gameActions.update(updatedGame.toJS());
+    }
   }
 
   handleAddScore() {
