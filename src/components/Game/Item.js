@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   user: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 12,
+    marginLeft: 4,
   },
   winner: {
     color: '#F8E71C',
