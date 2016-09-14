@@ -142,7 +142,8 @@ exports[`Game render Item 1`] = `
               },
               Object {
                 "fontFamily": "Montserrat-SemiBold",
-                "fontSize": 12
+                "fontSize": 12,
+                "marginLeft": 4
               }
             ]
           }>
@@ -176,7 +177,8 @@ exports[`Game render Item 1`] = `
               },
               Object {
                 "fontFamily": "Montserrat-SemiBold",
-                "fontSize": 12
+                "fontSize": 12,
+                "marginLeft": 4
               }
             ]
           } />
@@ -276,7 +278,8 @@ exports[`Game render List 1`] = `
                   },
                   Object {
                     "fontFamily": "Montserrat-SemiBold",
-                    "fontSize": 12
+                    "fontSize": 12,
+                    "marginLeft": 4
                   }
                 ]
               }>
@@ -310,7 +313,8 @@ exports[`Game render List 1`] = `
                   },
                   Object {
                     "fontFamily": "Montserrat-SemiBold",
-                    "fontSize": 12
+                    "fontSize": 12,
+                    "marginLeft": 4
                   }
                 ]
               } />
