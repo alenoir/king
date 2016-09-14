@@ -8,7 +8,7 @@ import App from './src/containers/App';
 class king extends Component {
   render() {
     return (
-      <App />
+      <App style={{ backgroundColor: '#000000' }} />
     );
   }
 }

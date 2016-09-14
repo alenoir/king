@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Immutable, { Map, List } from 'immutable';
 import React from 'react';
 import ReactNative from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
@@ -167,7 +167,7 @@ class Feed extends Component {
   }
 
   handleClose() {
-    Actions.pop();
+    Actions.feed({ type: ActionConst.RESET });
   }
 
   handleEditScore(round) {
