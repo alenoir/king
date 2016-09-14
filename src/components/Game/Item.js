@@ -17,17 +17,26 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: 30,
+    marginTop: 15,
+    marginBottom: 15,
+    height: 40,
   },
   titleWrapper: {
     flex: 1,
+
   },
   title: {
     fontFamily: 'Montserrat-Light',
+    fontSize: 19,
     color: '#ffffff',
   },
 
   subTitleWrapper: {
     flex: 1,
+    flexDirection: 'row',
   },
   winner: {
     fontFamily: 'Montserrat-Light',
@@ -38,6 +47,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 });
+
 const ACTION_TIMER = 400;
 
 class GameList extends Component {
@@ -78,6 +88,24 @@ class GameList extends Component {
     }
   }
 
+  renderPlayers() {
+    const { game } = this.props;
+
+    if (game.getWinnerId()) {
+      return (
+        <View style={styles.subTitleWrapper}>
+          <View style={styles.winnerWrappr}>
+            <Text style={styles.winner}>{game.getWinnerId()}</Text>
+          </View>
+          <View style={styles.looserWrapper}>
+            <Text style={styles.looser}>{game.getLooserId()}</Text>
+          </View>
+        </View>
+      );
+    }
+    return false;
+  }
+
   render() {
     const { game } = this.props;
     return (
@@ -88,14 +116,10 @@ class GameList extends Component {
           onPressOut={() => this.handlePressOut()}
         >
           <View style={styles.titleWrapper}>
-            <Text style={styles.title}>Partie #{game.getId()}</Text>
-          </View>
-          <View style={styles.subTitleWrapper}>
-            <Text style={styles.winner}>{game.getCreatedAt().toString()}</Text>
-            <Text style={styles.looser}>{game.getLooserId()}</Text>
+            <Text style={styles.title}>{game.getTitle()}</Text>
           </View>
 
-
+          {this.renderPlayers()}
         </TouchableOpacity>
       </View>
     );

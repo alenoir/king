@@ -14,28 +14,38 @@ const {
 
 const styles = StyleSheet.create({
   container: {
-    width: 50,
+    marginBottom: 30,
     height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   score: {
-    flex: 1,
-    fontFamily: 'Montserrat-Light',
+    fontFamily: 'Montserrat-Regular',
     color: '#FFFFFF',
+    fontSize: 22,
     textAlign: 'center',
+    opacity: 0.5,
+  },
+
+  scoreWinner: {
+    color: '#F8E71C',
+    opacity: 1,
   },
 });
 
-class GameList extends Component {
+class GameItem extends Component {
 
   render() {
-    const { score, roundId } = this.props;
+    const { score } = this.props;
+    const stylesScore = [styles.score];
+    if (score.getValue() === 0) {
+      stylesScore.push(styles.scoreWinner);
+    }
     return (
       <View
         style={styles.container}
-        key={`round_${roundId}_score_${score.getId()}`}
-        style={styles.playerScoreWrapper}
       >
-        <Text style={styles.score}>{score.getValue()}</Text>
+        <Text style={stylesScore}>{score.getValue()}</Text>
       </View>
     );
   }
@@ -44,9 +54,9 @@ class GameList extends Component {
 
 //
 
-GameList.propTypes = {
+GameItem.propTypes = {
   roundId: PropTypes.number,
   score: PropTypes.object,
 };
 
-module.exports = GameList;
+module.exports = GameItem;

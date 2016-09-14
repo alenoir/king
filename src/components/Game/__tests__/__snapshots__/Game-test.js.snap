@@ -60,7 +60,13 @@ exports[`Game render Item 1`] = `
 <View
   style={
     Object {
-      "flex": 1
+      "alignItems": "flex-start",
+      "flex": 1,
+      "height": 40,
+      "justifyContent": "center",
+      "marginBottom": 15,
+      "marginTop": 15,
+      "paddingLeft": 30
     }
   }>
   <View
@@ -95,43 +101,50 @@ exports[`Game render Item 1`] = `
         style={
           Object {
             "color": "#ffffff",
-            "fontFamily": "Montserrat-Light"
+            "fontFamily": "Montserrat-Light",
+            "fontSize": 19
           }
         }>
-        Partie #
-        id1
+        Partie #id1
       </Text>
     </View>
     <View
       style={
         Object {
-          "flex": 1
+          "flex": 1,
+          "flexDirection": "row"
         }
       }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontFamily": "Montserrat-Light"
-          }
-        }>
-        Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontFamily": "Montserrat-Light"
-          }
-        }>
-        id1
-      </Text>
+      <View
+        style={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Montserrat-Light"
+            }
+          }>
+          id1
+        </Text>
+      </View>
+      <View
+        style={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Montserrat-Light"
+            }
+          }>
+          id1
+        </Text>
+      </View>
     </View>
   </View>
 </View>
@@ -145,7 +158,13 @@ exports[`Game render List 1`] = `
     <View
       style={
         Object {
-          "flex": 1
+          "alignItems": "flex-start",
+          "flex": 1,
+          "height": 40,
+          "justifyContent": "center",
+          "marginBottom": 15,
+          "marginTop": 15,
+          "paddingLeft": 30
         }
       }>
       <View
@@ -180,43 +199,50 @@ exports[`Game render List 1`] = `
             style={
               Object {
                 "color": "#ffffff",
-                "fontFamily": "Montserrat-Light"
+                "fontFamily": "Montserrat-Light",
+                "fontSize": 19
               }
             }>
-            Partie #
-            id1
+            Partie #id1
           </Text>
         </View>
         <View
           style={
             Object {
-              "flex": 1
+              "flex": 1,
+              "flexDirection": "row"
             }
           }>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "Montserrat-Light"
-              }
-            }>
-            Fri Mar 01 2013 01:00:00 GMT+0100 (CET)
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "Montserrat-Light"
-              }
-            }>
-            id1
-          </Text>
+          <View
+            style={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Montserrat-Light"
+                }
+              }>
+              id1
+            </Text>
+          </View>
+          <View
+            style={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Montserrat-Light"
+                }
+              }>
+              id1
+            </Text>
+          </View>
         </View>
       </View>
     </View>

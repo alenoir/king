@@ -8,8 +8,11 @@ import isNumber from 'is-number';
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
 
-import NextIcon from '../../assets/images/ic_next.png';
+import Header from '../../components/Header';
+
 import CloseIcon from '../../assets/images/ic_close.png';
+import NextIcon from '../../assets/images/ic_next.png';
+
 
 const {
   StyleSheet,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
   },
 
   addButton: {
-    flex: 1,
+    height: 50,
     backgroundColor: '#F8E71C',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -121,23 +124,31 @@ class GameScore extends Component {
     const players = game.getPlayerIds();
 
     const playerScores = players.map((player) => {
+      let value = 0;
+      let score = null;
+      if (this.props.scores) {
+        const filteredCores = this.props.scores.filter((item) => {
+          return item.getPlayerId() === player;
+        });
+        score = filteredCores[0];
+        value = score.getValue() || 0;
+      }
       return {
         name: player,
-        score: 0,
+        score: value,
+        defaultScore: score,
       };
     });
+    const currentPlayer = playerScores.first();
 
     this.state = {
       players: playerScores,
       game,
-      currentPlayer: playerScores.first(),
+      currentPlayer,
       currentIndex: 0,
       buttonText: 'JOUEUR SUIVANT',
       title: game.getTitle(),
     };
-  }
-
-  componentDidMount() {
   }
 
   handleOnChange(text) {
@@ -155,12 +166,16 @@ class GameScore extends Component {
   }
 
   handleAddScore() {
+    let id = new Date().getTime().toString();
+    if (this.state.currentPlayer.defaultScore) {
+      id = this.state.currentPlayer.defaultScore.getId();
+    }
     const scoreObject = {
       playerId: this.state.currentPlayer.name,
       value: this.state.currentPlayer.score,
       round: this.props.round,
       gameId: this.props.gameId,
-      id: new Date().getTime().toString(),
+      id,
     };
     this.props.scoreActions.create(scoreObject);
     const nextIndex = this.state.currentIndex + 1;
@@ -186,19 +201,11 @@ class GameScore extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={(() => this.handleClose())}
-          >
-            <Image
-              style={styles.closeButtonIcon}
-              source={CloseIcon}
-            />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>{this.state.title}</Text>
-          <View style={styles.headerAfter} />
-        </View>
+        <Header
+          title={this.state.title}
+          onLeftButtonPress={(() => this.handleClose())}
+          buttonLeftImage={CloseIcon}
+        />
         <TextInput
           style={styles.input}
           onChangeText={(text) => this.handleOnChange(text)}
@@ -231,6 +238,7 @@ class GameScore extends Component {
 }
 
 GameScore.propTypes = {
+  scores: PropTypes.array,
   round: PropTypes.number.isRequired,
   gameId: PropTypes.string.isRequired,
   game: PropTypes.object.isRequired,

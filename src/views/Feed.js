@@ -4,9 +4,12 @@ import React from 'react';
 import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import GameAddButton from '../components/Game/AddButton';
-import GameList from '../components/Game/List';
 import gameActions from '../actions/gameActions';
+
+import GameList from '../components/Game/List';
+import Header from '../components/Header';
+
+import AddIcon from '../assets/images/ic_add.png';
 
 const {
   StyleSheet,
@@ -65,8 +68,8 @@ class Feed extends Component {
       'Warnig',
       'Delete this game ?',
       [
-        { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
         { text: 'Cancel' },
+        { text: 'Delete', onPress: () => this.handleRemoveItem(id) },
       ]
     );
   }
@@ -76,7 +79,12 @@ class Feed extends Component {
 
     return (
       <View style={styles.container}>
-        <GameAddButton style={styles.button} text="Add" onPress={(() => this.handleAddGame())} />
+        <Header
+          title={'KING!'}
+          onRightButtonPress={(() => this.handleAddGame())}
+          buttonRightImage={AddIcon}
+          big
+        />
         <GameList
           onItemLongPress={(id) => this.handleItemLongPress(id)}
           onItemSelected={(id) => this.handleItemSelected(id)}

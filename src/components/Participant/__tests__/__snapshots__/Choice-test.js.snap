@@ -2,9 +2,9 @@ exports[`Participant Choice render 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "white",
       "flex": 1,
-      "flexDirection": "column"
+      "flexDirection": "column",
+      "marginTop": 20
     }
   }>
   <View
@@ -17,6 +17,7 @@ exports[`Participant Choice render 1`] = `
       }
     }>
     <TextInput
+      autoCorrect={false}
       autoFocus={true}
       onChangeText={[Function onChangeText]}
       onSubmitEditing={[Function onSubmitEditing]}
@@ -24,11 +25,18 @@ exports[`Participant Choice render 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#ff5555",
-            "color": "#0000ff",
-            "fontSize": 14,
-            "height": 40,
-            "minWidth": 60
+            "backgroundColor": "rgba(255, 255, 255, 0.2)",
+            "borderRadius": 13,
+            "color": "#ffffff",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 12,
+            "height": 26,
+            "marginLeft": 6,
+            "minWidth": 100,
+            "paddingBottom": 5,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 5
           },
           Object {
             "width": 10
@@ -51,19 +59,22 @@ exports[`Participant Choice render 1`] = `
       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
       style={
         Object {
-          "backgroundColor": "#543212",
-          "height": 40,
+          "height": 26,
+          "justifyContent": "center",
+          "marginLeft": 5,
           "opacity": 1,
-          "width": 40
+          "width": 30
         }
       }
       testID={undefined}>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail">
-        Add
-      </Text>
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 20,
+            "width": 20
+          }
+        } />
     </View>
   </View>
 </View>

@@ -13,7 +13,7 @@ describe('Game model', () => {
     const object = new Game(data);
 
     expect(object.getId()).toEqual(data.id);
-    expect(object.getTitle()).toEqual(`Partie #0${data.id}`);
+    expect(object.getTitle()).toEqual(`Partie #${data.id}`);
     expect(object.getCreatedAt()).toEqual(data.createdAt);
     expect(object.getClosedAt()).toEqual(data.closedAt);
     expect(object.getWinnerId()).toEqual(data.winnerId);

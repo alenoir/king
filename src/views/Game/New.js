@@ -7,11 +7,17 @@ import { Actions } from 'react-native-router-flux';
 import ParticipantChoice from '../../components/Participant/Choice';
 import gameActions from '../../actions/gameActions';
 
+import Header from '../../components/Header';
+
+import CloseIcon from '../../assets/images/ic_close.png';
+import NextIcon from '../../assets/images/ic_next.png';
+
 const {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
+  Image,
 } = ReactNative;
 
 const {
@@ -23,10 +29,32 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2DB0CD',
+    backgroundColor: '#000000',
   },
-  finishButton: {
+
+  addButton: {
+    height: 50,
+    backgroundColor: '#F8E71C',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addButtonBefore: {
     flex: 1,
+  },
+  addButtonText: {
+    flex: 8,
+    fontFamily: 'Montserrat-Black',
+    fontSize: 18,
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  addButtonIconWrapper: {
+    flex: 1,
+  },
+  addButtonIcon: {
+    width: 20,
+    height: 20,
   },
 });
 
@@ -36,6 +64,7 @@ class Feed extends Component {
     super();
     this.state = {
       selectedPlayers: [],
+      buttonText: 'CRÉER LA PARTIE',
     };
   }
 
@@ -63,15 +92,28 @@ class Feed extends Component {
     const { player } = this.props;
     return (
       <View style={styles.container}>
+        <Header
+          title={'Nouvelle partie'}
+          onLeftButtonPress={(() => this.handleClose())}
+          buttonLeftImage={CloseIcon}
+        />
         <ParticipantChoice
           players={player.get('list')}
           onChange={((ids) => this.handlePlayersChange(ids))}
         />
+
         <TouchableOpacity
-          style={styles.finishButton}
+          style={styles.addButton}
           onPress={(() => this.handleNext())}
         >
-          <Text>Next</Text>
+          <View style={styles.addButtonBefore} />
+          <Text style={styles.addButtonText}>{this.state.buttonText}</Text>
+          <View style={styles.addButtonIconWrapper} >
+            <Image
+              style={styles.addButtonIcon}
+              source={NextIcon}
+            />
+          </View>
         </TouchableOpacity>
       </View>
     );

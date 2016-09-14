@@ -1,24 +1,34 @@
-exports[`Game render Item 1`] = `
+exports[`Score render Item 1`] = `
 <View
-  style={undefined}>
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 50,
+      "justifyContent": "center",
+      "marginBottom": 30
+    }
+  }>
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
     style={
-      Object {
-        "color": "#FFFFFF",
-        "flex": 1,
-        "fontFamily": "Montserrat-Light",
-        "textAlign": "center"
-      }
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Montserrat-Regular",
+          "fontSize": 22,
+          "opacity": 0.5,
+          "textAlign": "center"
+        }
+      ]
     }>
     12
   </Text>
 </View>
 `;
 
-exports[`Game render List 1`] = `
+exports[`Score render List 1`] = `
 <View
   style={
     Object {
@@ -42,22 +52,35 @@ exports[`Game render List 1`] = `
             "width": 50
           }
         }>
-        <Text
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
           accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function bound touchableHandleResponderGrant]}
+          onResponderMove={[Function bound touchableHandleResponderMove]}
+          onResponderRelease={[Function bound touchableHandleResponderRelease]}
+          onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+          onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+          onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
           style={
             Object {
-              "color": "#FFFFFF",
-              "textAlign": "center"
+              "opacity": 1
             }
-          }>
-          0
-        </Text>
-        <View
-          style={Object {}}>
-          <View />
-          <View />
+          }
+          testID={undefined}>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column"
+              }
+            }>
+            <View />
+            <View />
+          </View>
         </View>
       </View>
     </View>
