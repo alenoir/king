@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     justifyContent: 'center',
     textAlign: 'center',
+    color: '#000000',
   },
   addButtonIconWrapper: {
     flex: 1,
