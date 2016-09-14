@@ -1,5 +1,5 @@
-import { Map } from 'immutable';
+import { OrderedMap } from 'immutable';
 
-const GameMap = Map;
+const GameMap = OrderedMap;
 
 export default GameMap;

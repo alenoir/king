@@ -1,5 +1,6 @@
 import ReactNative from 'react-native';
 import React from 'react';
+import dismissKeyboard from 'dismissKeyboard'; // eslint-disable-line
 
 import CloseIcon from '../../assets/images/ic_close.png';
 import AddIcon from '../../assets/images/ic_add.png';
@@ -174,6 +175,7 @@ class ParticipantChoice extends Component {
               autoFocus
               returnKeyType="next"
               autoCorrect={false}
+              onEndEditing={() => dismissKeyboard()}
             />
           </View>
           <TouchableOpacity

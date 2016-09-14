@@ -46,9 +46,7 @@ class Feed extends Component {
   }
 
   componentDidMount() {
-    this.props.gameActions.fetch().then(() => {
-      // Actions.gameHome({ gameId: '1473434578909' });
-    });
+    this.props.gameActions.fetch();
   }
 
   handleAddGame() {

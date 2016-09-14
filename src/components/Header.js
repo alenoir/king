@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 20,
     height: 20,
+    margin: 25,
   },
   title: {
     flex: 4,
@@ -45,22 +46,6 @@ const styles = StyleSheet.create({
 });
 
 class Header extends Component {
-
-  renderRightButton() {
-    const { onRightButtonPress, buttonRightImage } = this.props;
-
-    return (
-      <TouchableOpacity
-        style={styles.button}
-        onPress={(onRightButtonPress)}
-      >
-        <Image
-          style={styles.closeButtonIcon}
-          source={buttonRightImage}
-        />
-      </TouchableOpacity>
-    );
-  }
   render() {
     const {
       onRightButtonPress,
@@ -82,7 +67,7 @@ class Header extends Component {
           onPress={(onLeftButtonPress)}
         >
           <Image
-            style={styles.closeButtonIcon}
+            style={styles.icon}
             source={buttonLeftImage}
           />
         </TouchableOpacity>
@@ -92,7 +77,7 @@ class Header extends Component {
           onPress={(onRightButtonPress)}
         >
           <Image
-            style={styles.closeButtonIcon}
+            style={styles.icon}
             source={buttonRightImage}
           />
         </TouchableOpacity>

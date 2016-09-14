@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
 class GameList extends Component {
   render() {
     const { games, onItemSelected, onItemLongPress } = this.props;
-    const sortdGames = games.sort(
-      (a, b) => a.getCreatedAt() < b.getCreatedAt()
-    );
+    const sortedGames = games.sortBy((value) => {
+      return parseInt(value.get('id'), 10);
+    }).reverse();
     return (
       <View style={this.props.style}>
         <ScrollView style={styles.container}>
-          {sortdGames.valueSeq().map((game) => {
+          {sortedGames.valueSeq().map((game) => {
             return (
               <GameItem
                 onLongPress={onItemLongPress}

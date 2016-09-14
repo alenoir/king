@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 
   },
   scoreContent: {
-    marginTop: -40,
+    marginTop: -70,
   },
   score: {
     fontFamily: 'Montserrat-Black',
@@ -55,39 +55,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#FFFFFF',
     textAlign: 'center',
+    marginTop: -30,
+
   },
 
   input: {
     opacity: 0,
     height: 0,
-  },
-
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButton: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonIcon: {
-    width: 20,
-    height: 20,
-  },
-  headerTitle: {
-    flex: 5,
-    fontFamily: 'Montserrat-Black',
-    fontSize: 16,
-    justifyContent: 'center',
-    textAlign: 'center',
-    color: '#FFFFFF',
-  },
-
-  headerAfter: {
-    flex: 1,
   },
 
   addButton: {
@@ -215,6 +189,8 @@ class GameScore extends Component {
           onChangeText={(text) => this.handleOnChange(text)}
           value={this.state.currentPlayer.score.toString()}
           autoFocus
+          autoCorrect={false}
+          keyboardType={'numeric'}
         />
         <View style={styles.scoreContainer}>
           <View style={styles.scoreContent}>

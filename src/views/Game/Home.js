@@ -4,6 +4,7 @@ import Immutable, { Map, List } from 'immutable';
 import React from 'react';
 import ReactNative from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
+import dismissKeyboard from 'dismissKeyboard'; // eslint-disable-line
 
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
@@ -45,11 +46,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'column',
     paddingTop: 40,
+
   },
   colAdd: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'column',
   },
   colScore: {
@@ -60,20 +61,30 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
 
+  addButtonWrapper: {
+
+
+  },
   addButton: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
+
   },
+
   addButtonIconWrapper: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    height: 30,
   },
   addButtonIcon: {
     width: 20,
     height: 20,
   },
+
   addButtonDashWrapper: {
-    flex: 10,
+
   },
   addButtonDash: {
     flex: 1,
@@ -123,6 +134,7 @@ class Feed extends Component {
   componentDidMount() {
     this.props.scoreActions.fetch(this.props.gameId);
     this.props.gameActions.fetch(this.props.gameId);
+    dismissKeyboard();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -247,22 +259,27 @@ class Feed extends Component {
             })}
           </View>
           <View style={styles.colAdd}>
-            <TouchableOpacity
-              style={styles.addButton}
-              onPress={(() => this.handleAddScore())}
-            >
-              <View style={styles.addButtonIconWrapper}>
-                <Image
-                  style={styles.addButtonIcon}
-                  source={AddIcon}
-                />
-              </View>
-              <View style={styles.addButtonDashWrapper} />
-            </TouchableOpacity>
-            <Image
-              style={styles.backgroundImage}
-              source={DashedLine}
-            />
+            <View style={styles.addButtonWrapper}>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={(() => this.handleAddScore())}
+              >
+                <View style={styles.addButtonIconWrapper}>
+                  <Image
+                    style={styles.addButtonIcon}
+                    source={AddIcon}
+                  />
+                </View>
+
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.addButtonDashWrapper}>
+              <Image
+                style={styles.backgroundImage}
+                source={DashedLine}
+              />
+            </View>
           </View>
           <View style={styles.colScore}>
             <ScoreList
