@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -22,10 +21,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		6729D24E8C474F7B854BD245 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B40CA4BF2FB4B7FB188BE28 /* libc++.tbd */; };
-		70BE19568C25441795888844 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B77F434444411BA79FAB22 /* libz.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		90360B45CB6C4C569B49A48F /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433CBA3B3E94A0CA29B2939 /* libRealmReact.a */; };
 		A181CFD21D86FED700371389 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCA1D86FED700371389 /* Montserrat-Black.otf */; };
 		A181CFD31D86FED700371389 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCA1D86FED700371389 /* Montserrat-Black.otf */; };
 		A181CFD41D86FED700371389 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */; };
@@ -42,6 +38,9 @@
 		A181CFDF1D86FED700371389 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */; };
 		A181CFE01D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
 		A181CFE11D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
+		E8950075036143828C7F9C99 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C2A7CF41634D00BAE99E08 /* libRealmReact.a */; };
+		FAF9D49F554442CBB1551A88 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A53E7E0ABF4581ABA19624 /* libc++.tbd */; };
+		B1B65A6CA4F840049D8E2537 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F032F46CA8014F55AEFFF775 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,13 +121,6 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		A19B11401D86F52E0033A8C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFB99EF7D884EF5908D2145 /* RealmReact.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F60690131CA2766F0003FB26;
-			remoteInfo = RealmReact;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -151,12 +143,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = king/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = king/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1B40CA4BF2FB4B7FB188BE28 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		44B77F434444411BA79FAB22 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		5433CBA3B3E94A0CA29B2939 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		9EFB99EF7D884EF5908D2145 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		A181CFCA1D86FED700371389 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
 		A181CFCB1D86FED700371389 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		A181CFCC1D86FED700371389 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -165,6 +153,10 @@
 		A181CFCF1D86FED700371389 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		A181CFD01D86FED700371389 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		1D284CB7063C447282A33D0D /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C8C2A7CF41634D00BAE99E08 /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		05A53E7E0ABF4581ABA19624 /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		F032F46CA8014F55AEFFF775 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +182,9 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				90360B45CB6C4C569B49A48F /* libRealmReact.a in Frameworks */,
-				6729D24E8C474F7B854BD245 /* libc++.tbd in Frameworks */,
-				70BE19568C25441795888844 /* libz.tbd in Frameworks */,
+				E8950075036143828C7F9C99 /* libRealmReact.a in Frameworks */,
+				FAF9D49F554442CBB1551A88 /* libc++.tbd in Frameworks */,
+				B1B65A6CA4F840049D8E2537 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +251,8 @@
 		096A37486E664B3D905002ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B40CA4BF2FB4B7FB188BE28 /* libc++.tbd */,
-				44B77F434444411BA79FAB22 /* libz.tbd */,
+				05A53E7E0ABF4581ABA19624 /* libc++.tbd */,
+				F032F46CA8014F55AEFFF775 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,7 +317,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				9EFB99EF7D884EF5908D2145 /* RealmReact.xcodeproj */,
+				1D284CB7063C447282A33D0D /* RealmReact.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -373,14 +365,6 @@
 				A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */,
 			);
 			name = Font;
-			sourceTree = "<group>";
-		};
-		A19B11331D86F52E0033A8C9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A19B11411D86F52E0033A8C9 /* libRealmReact.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,10 +473,6 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
-				{
-					ProductGroup = A19B11331D86F52E0033A8C9 /* Products */;
-					ProjectRef = 9EFB99EF7D884EF5908D2145 /* RealmReact.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -571,13 +551,6 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A19B11411D86F52E0033A8C9 /* libRealmReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRealmReact.a;
-			remoteRef = A19B11401D86F52E0033A8C9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

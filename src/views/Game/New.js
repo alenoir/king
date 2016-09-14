@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     justifyContent: 'center',
     textAlign: 'center',
+    color: '#000000',
   },
   addButtonIconWrapper: {
     flex: 1,
@@ -86,6 +87,10 @@ class Feed extends Component {
     this.props.gameActions.create(game).then(() => {
       Actions.gameHome({ gameId: game.id });
     });
+  }
+
+  handleClose() {
+    Actions.pop();
   }
 
   render() {

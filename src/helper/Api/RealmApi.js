@@ -67,7 +67,13 @@ const Api = {
   },
 
   updateGame(data) {
-    return Promise.resolve(data);
+    return new Promise((resolve) => {
+      const dataEncoded = encodeGameData(data);
+      realm.write(() => {
+        const game = realm.create('Game', dataEncoded);
+        resolve(decodeGameData(game));
+      });
+    });
   },
 
   removeGame(id) {

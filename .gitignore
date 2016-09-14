@@ -39,6 +39,8 @@ buck-out/
 \.buckd/
 android/app/libs
 android/keystores/debug.keystore
+*.keystore
+android/app/credentials.json
 
 # Tests
 coverage

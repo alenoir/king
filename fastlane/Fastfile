@@ -1,0 +1,18 @@
+fastlane_version "1.68.0"
+default_platform :android
+
+platform :android do
+  desc "Deploy a new version to the Google Play Store"
+  lane :alpha do
+    gradle(
+      task: "assemble",
+      build_type: "Release",
+      project_dir: "android/"
+    )
+    desc "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+    supply(
+      track: "alpha",
+      apk_paths: ["#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"]
+    )
+  end
+end

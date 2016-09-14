@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-
+    opacity: 0,
+    height: 0,
   },
 
   header: {
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     justifyContent: 'center',
     textAlign: 'center',
+    color: '#000000',
   },
   addButtonIconWrapper: {
     flex: 1,
@@ -131,7 +133,9 @@ class GameScore extends Component {
           return item.getPlayerId() === player;
         });
         score = filteredCores[0];
-        value = score.getValue() || 0;
+        if (score) {
+          value = score.getValue() || 0;
+        }
       }
       return {
         name: player,

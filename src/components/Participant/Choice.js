@@ -56,19 +56,23 @@ const styles = StyleSheet.create({
     height: 15,
     width: 15,
   },
+  inputWrapper: {
+    borderRadius: 13,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    height: 26,
+    marginLeft: 6,
+  },
   input: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 12,
     color: '#ffffff',
     height: 26,
-    borderRadius: 13,
-    marginLeft: 6,
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 5,
     minWidth: 100,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0)',
   },
 
   addButton: {
@@ -160,16 +164,18 @@ class ParticipantChoice extends Component {
             );
           })}
 
-          <TextInput
-            ref={((c) => { this.input = c; })}
-            style={[styles.input, { width: this.state.inputWidth }]}
-            onChangeText={(text) => this.handleInputChange(text)}
-            value={this.state.currentInputText}
-            onSubmitEditing={(() => this.handleAddPlayer())}
-            autoFocus
-            returnKeyType="next"
-            autoCorrect={false}
-          />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              ref={((c) => { this.input = c; })}
+              style={[styles.input, { width: this.state.inputWidth }]}
+              onChangeText={(text) => this.handleInputChange(text)}
+              value={this.state.currentInputText}
+              onSubmitEditing={(() => this.handleAddPlayer())}
+              autoFocus
+              returnKeyType="next"
+              autoCorrect={false}
+            />
+          </View>
           <TouchableOpacity
             style={styles.addButton}
             onPress={(() => this.handleAddPlayer())}

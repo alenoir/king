@@ -2,6 +2,23 @@ apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
 
+import groovy.json.JsonSlurper
+
+def getNpmVersion() {
+    /*def inputFile = new File("../package.json")
+    def packageJson = new JsonSlurper().parseText(inputFile.text)
+    return packageJson["version"]*/
+
+
+    return "1.1.0"
+}
+/* calculated from git commits to give sequential integers */
+def getGitVersion() {
+    def counter = 0
+    def process = "git rev-list master --first-parent --count".execute()
+    return process.text.toInteger()
+}
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -81,19 +98,29 @@ def enableSeparateBuildPerCPUArchitecture = false
  * Run Proguard to shrink the Java bytecode in release builds.
  */
 def enableProguardInReleaseBuilds = false
+def userVer = getNpmVersion()
+def googleVer = getGitVersion()
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.king"
+        applicationId "com.coverage.king"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode googleVer
+        versionName userVer
         ndk {
             abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile file(COVERAGE_RELEASE_STORE_FILE)
+            storePassword COVERAGE_RELEASE_STORE_PASSWORD
+            keyAlias COVERAGE_RELEASE_KEY_ALIAS
+            keyPassword COVERAGE_RELEASE_KEY_PASSWORD
         }
     }
     splits {
@@ -108,7 +135,8 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        }
+            signingConfig signingConfigs.release
+          }
     }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
