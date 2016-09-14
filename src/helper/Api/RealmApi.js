@@ -90,7 +90,6 @@ const Api = {
   },
 
   createScore(data) {
-    console.log('-createScore------ ', data);
     return new Promise((resolve) => {
       const dataEncoded = encodeScoreData(data);
       realm.write(() => {

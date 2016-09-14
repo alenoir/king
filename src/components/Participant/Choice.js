@@ -1,12 +1,16 @@
 import ReactNative from 'react-native';
 import React from 'react';
 
+import CloseIcon from '../../assets/images/ic_close.png';
+import AddIcon from '../../assets/images/ic_add.png';
+
 const {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   TextInput,
+  Image,
 } = ReactNative;
 
 const {
@@ -18,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white',
+    marginTop: 20,
   },
   list: {
     flex: 1,
@@ -27,29 +31,55 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   itemChoice: {
-    backgroundColor: '#222222',
-    height: 40,
+    flexDirection: 'row',
+    height: 26,
+    borderRadius: 13,
+    marginLeft: 6,
+    marginBottom: 6,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
   itemChoiceText: {
-    fontSize: 14,
-    color: '#FFFFFF',
+    flex: 1,
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 12,
+    color: '#ffffff',
   },
   itemChoiceButton: {
-    backgroundColor: '#ff0000',
-    height: 20,
-    width: 20,
+    marginLeft: 5,
+    justifyContent: 'center',
+  },
+  itemChoiceButtonIcon: {
+    height: 15,
+    width: 15,
   },
   input: {
-    fontSize: 14,
-    color: '#0000ff',
-    backgroundColor: '#ff5555',
-    height: 40,
-    minWidth: 60,
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 12,
+    color: '#ffffff',
+    height: 26,
+    borderRadius: 13,
+    marginLeft: 6,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    minWidth: 100,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
+
   addButton: {
-    backgroundColor: '#543212',
-    height: 40,
-    width: 40,
+    height: 26,
+    width: 30,
+    marginLeft: 5,
+    justifyContent: 'center',
+  },
+  addButtonIcon: {
+    height: 20,
+    width: 20,
   },
 
 });
@@ -103,7 +133,7 @@ class ParticipantChoice extends Component {
 
   handleInputChange(text) {
     this.setState({
-      inputWidth: 30 + (8 * text.length),
+      inputWidth: (8 * text.length),
       currentInputText: text,
     });
   }
@@ -120,7 +150,10 @@ class ParticipantChoice extends Component {
                   style={styles.itemChoiceButton}
                   onPress={(() => this.handleRemovePlayer(player))}
                 >
-                  <Text>X</Text>
+                  <Image
+                    style={styles.itemChoiceButtonIcon}
+                    source={CloseIcon}
+                  />
                 </TouchableOpacity>
 
               </View>
@@ -135,12 +168,16 @@ class ParticipantChoice extends Component {
             onSubmitEditing={(() => this.handleAddPlayer())}
             autoFocus
             returnKeyType="next"
+            autoCorrect={false}
           />
           <TouchableOpacity
             style={styles.addButton}
             onPress={(() => this.handleAddPlayer())}
           >
-            <Text>Add</Text>
+            <Image
+              style={styles.addButtonIcon}
+              source={AddIcon}
+            />
           </TouchableOpacity>
         </View>
       </View>

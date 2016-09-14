@@ -139,7 +139,7 @@ class Feed extends Component {
       newresult[item.getRound()] = scoreRound;
       return newresult;
     }, {}));
-    const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10);
+    const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10) || 0;
     const game = nextProps.game.get('list').get(nextProps.gameId);
     const players = game.getPlayerIds();
     this.setState({

@@ -3,8 +3,8 @@ exports[`Header render big 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "flex": 1,
       "flexDirection": "row",
+      "height": 70,
       "justifyContent": "center"
     }
   }>
@@ -86,8 +86,8 @@ exports[`Header render small 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "flex": 1,
       "flexDirection": "row",
+      "height": 70,
       "justifyContent": "center"
     }
   }>

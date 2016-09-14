@@ -7,7 +7,6 @@ const {
   StyleSheet,
   View,
   ScrollView,
-  Text,
   TouchableOpacity,
   Animated,
 } = ReactNative;
@@ -98,9 +97,6 @@ class ScoreList extends Component {
                     onPressIn={() => this.handlePressIn(round)}
                     onPressOut={() => this.handlePressOut()}
                   >
-                    <Text style={styles.roundTitle}>
-                      {round.id}
-                    </Text>
                     <View style={styles.scoreContainer}>
                       { players.map((player, key) => {
                         const score = round.scores.filter((item) => {

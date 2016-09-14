@@ -18,7 +18,7 @@ exports[`Score render Item 1`] = `
           "color": "#FFFFFF",
           "fontFamily": "Montserrat-Regular",
           "fontSize": 22,
-          "opacity": 0.8,
+          "opacity": 0.5,
           "textAlign": "center"
         }
       ]
@@ -52,27 +52,35 @@ exports[`Score render List 1`] = `
             "width": 50
           }
         }>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#FFFFFF",
-              "textAlign": "center"
-            }
-          }>
-          0
-        </Text>
         <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function bound touchableHandleResponderGrant]}
+          onResponderMove={[Function bound touchableHandleResponderMove]}
+          onResponderRelease={[Function bound touchableHandleResponderRelease]}
+          onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+          onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+          onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
           style={
             Object {
-              "flex": 1,
-              "flexDirection": "column"
+              "opacity": 1
             }
-          }>
-          <View />
-          <View />
+          }
+          testID={undefined}>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column"
+              }
+            }>
+            <View />
+            <View />
+          </View>
         </View>
       </View>
     </View>

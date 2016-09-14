@@ -8,8 +8,11 @@ import isNumber from 'is-number';
 import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
 
-import NextIcon from '../../assets/images/ic_next.png';
+import Header from '../../components/Header';
+
 import CloseIcon from '../../assets/images/ic_close.png';
+import NextIcon from '../../assets/images/ic_next.png';
+
 
 const {
   StyleSheet,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
   },
 
   addButton: {
-    flex: 1,
+    height: 50,
     backgroundColor: '#F8E71C',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -198,19 +201,11 @@ class GameScore extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={(() => this.handleClose())}
-          >
-            <Image
-              style={styles.closeButtonIcon}
-              source={CloseIcon}
-            />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>{this.state.title}</Text>
-          <View style={styles.headerAfter} />
-        </View>
+        <Header
+          title={this.state.title}
+          onLeftButtonPress={(() => this.handleClose())}
+          buttonLeftImage={CloseIcon}
+        />
         <TextInput
           style={styles.input}
           onChangeText={(text) => this.handleOnChange(text)}

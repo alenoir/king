@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 22,
     textAlign: 'center',
-    opacity: 0.8,
+    opacity: 0.5,
   },
 
   scoreWinner: {
