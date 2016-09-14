@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-
+    opacity: 0,
+    height: 0,
   },
 
   header: {
