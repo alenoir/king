@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
   },
 
   addButton: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
