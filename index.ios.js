@@ -3,8 +3,7 @@ import {
   AppRegistry,
   View,
   Dimensions,
-  DeviceEventEmitter,
-  LayoutAnimation,
+  Keyboard,
 } from 'react-native';
 
 import App from './src/containers/App';
@@ -17,11 +16,11 @@ class king extends Component {
     };
   }
   componentWillMount() {
-    this.keyboardDidShowListener = DeviceEventEmitter.addListener(
+    this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       this.keyboardDidShow.bind(this)
     );
-    this.keyboardDidHideListener = DeviceEventEmitter.addListener(
+    this.keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
       this.keyboardDidHide.bind(this)
     );
