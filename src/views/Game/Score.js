@@ -189,6 +189,7 @@ class GameScore extends Component {
           autoFocus
           autoCorrect={false}
           keyboardType={'numeric'}
+          keyboardAppearance={'dark'}
         />
         <View style={styles.scoreContainer}>
           <View style={styles.scoreContent}>
