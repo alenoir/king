@@ -147,7 +147,7 @@ exports[`Game render Item 1`] = `
               }
             ]
           }>
-          id1
+          Id1
         </Text>
       </View>
       <View
@@ -181,7 +181,9 @@ exports[`Game render Item 1`] = `
                 "marginLeft": 4
               }
             ]
-          } />
+          }>
+          
+        </Text>
       </View>
     </View>
   </View>
@@ -283,7 +285,7 @@ exports[`Game render List 1`] = `
                   }
                 ]
               }>
-              id1
+              Id1
             </Text>
           </View>
           <View
@@ -317,7 +319,9 @@ exports[`Game render List 1`] = `
                     "marginLeft": 4
                   }
                 ]
-              } />
+              }>
+              
+            </Text>
           </View>
         </View>
       </View>
