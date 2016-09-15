@@ -29,7 +29,8 @@ platform :ios do
     gym(
       project: "ios/king.xcodeproj",
       scheme: "king",
-      output_directory: "./fastlane/Release/"
+      output_directory: "./fastlane/Release/",
+      team_name: "antoine lenoir"
     )
   end
 

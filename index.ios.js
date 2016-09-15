@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RatingRequestor from 'react-native-rating-requestor';
+
 import {
   AppRegistry,
   View,
@@ -7,6 +9,8 @@ import {
 } from 'react-native';
 
 import App from './src/containers/App';
+
+global.RatingTracker = new RatingRequestor('1154893287');
 
 class king extends Component {
   constructor() {

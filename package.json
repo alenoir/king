@@ -19,6 +19,7 @@
     "is-number": "^3.0.0",
     "react": "15.3.1",
     "react-native": "0.33.0",
+    "react-native-rating-requestor": "^2.0.0",
     "react-native-router-flux": "^3.35.0",
     "react-redux": "^4.4.5",
     "realm": "^0.14.3",
