@@ -8,6 +8,8 @@ engines:
     enabled: true
   eslint:
     enabled: true
+    config:
+      config: .eslintrc
   csslint:
     enabled: true
   duplication:
@@ -24,5 +26,4 @@ ratings:
   - "**.rb"
   - "**.go"
 exclude_paths:
-- spec/**/*
 - "**/__tests__/**/*"
