@@ -114,6 +114,7 @@ class Feed extends Component {
         <ParticipantChoice
           players={player.get('list')}
           onChange={((ids) => this.handlePlayersChange(ids))}
+          onFinsh={(() => this.handleNext())}
         />
 
         <TouchableOpacity

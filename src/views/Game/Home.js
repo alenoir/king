@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Immutable, { Map, List } from 'immutable';
+import Case from 'case';
 import React from 'react';
 import ReactNative from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
@@ -253,7 +254,7 @@ class Feed extends Component {
                   >
                     {this.getPlayerScore(player)}
                   </Text>
-                  <Text style={styles.playerName}>{player}</Text>
+                  <Text style={styles.playerName}>{Case.title(player)}</Text>
                 </View>
               );
             })}

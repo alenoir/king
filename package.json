@@ -13,6 +13,7 @@
     "collectCoverage": true
   },
   "dependencies": {
+    "case": "^1.4.1",
     "codecov": "^1.0.1",
     "immutable": "^3.8.1",
     "is-number": "^3.0.0",

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactNative from 'react-native';
+import Case from 'case';
 
 import WinnerIcon from '../../assets/images/ic_winner.png';
 import LooserIcon from '../../assets/images/ic_looser.png';
@@ -101,6 +102,14 @@ class GameList extends Component {
     }).start();
   }
 
+  handlePress() {
+    this.props.onSelect(this.props.game.getId());
+  }
+
+  handleLongPress() {
+    this.props.onLongPress(this.props.game.getId());
+  }
+
   animationActionComplete() {
     if (this.progressValue === 1) {
       this.props.onLongPress(this.props.game.getId());
@@ -118,14 +127,14 @@ class GameList extends Component {
               style={[styles.winnerIcon, styles.icon]}
               source={WinnerIcon}
             />
-            <Text style={[styles.winner, styles.user]}>{game.getWinnerId()}</Text>
+            <Text style={[styles.winner, styles.user]}>{Case.title(game.getWinnerId())}</Text>
           </View>
           <View style={styles.userWrapper}>
             <Image
               style={[styles.looserIcon, styles.icon]}
               source={LooserIcon}
             />
-            <Text style={[styles.looser, styles.user]}>{game.getLooserId()}</Text>
+            <Text style={[styles.looser, styles.user]}>{Case.title(game.getLooserId())}</Text>
           </View>
         </View>
       );
@@ -140,8 +149,8 @@ class GameList extends Component {
         <TouchableOpacity
           testID={'game_item_button'}
           style={styles.button}
-          onPressIn={() => this.handlePressIn()}
-          onPressOut={() => this.handlePressOut()}
+          onPress={() => this.handlePress()}
+          onLongPress={() => this.handleLongPress()}
         >
           <View style={styles.titleWrapper}>
             <Text style={styles.title}>{game.getTitle()}</Text>
