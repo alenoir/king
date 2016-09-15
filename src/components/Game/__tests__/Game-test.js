@@ -1,6 +1,7 @@
 import React from 'react';
 import { Map } from 'immutable';
 import renderer from 'react-test-renderer'; // eslint-disable-line
+// import { findAllByType } from '../../../helper/__tests__/utils/renderer-finder';
 
 import Game from '../../../models/Game';
 

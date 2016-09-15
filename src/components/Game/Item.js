@@ -138,6 +138,7 @@ class GameList extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity
+          testID={'game_item_button'}
           style={styles.button}
           onPressIn={() => this.handlePressIn()}
           onPressOut={() => this.handlePressOut()}
