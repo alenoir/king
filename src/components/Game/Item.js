@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactNative from 'react-native';
+import Case from 'case';
 
 import WinnerIcon from '../../assets/images/ic_winner.png';
 import LooserIcon from '../../assets/images/ic_looser.png';
@@ -118,14 +119,14 @@ class GameList extends Component {
               style={[styles.winnerIcon, styles.icon]}
               source={WinnerIcon}
             />
-            <Text style={[styles.winner, styles.user]}>{game.getWinnerId()}</Text>
+            <Text style={[styles.winner, styles.user]}>{Case.title(game.getWinnerId())}</Text>
           </View>
           <View style={styles.userWrapper}>
             <Image
               style={[styles.looserIcon, styles.icon]}
               source={LooserIcon}
             />
-            <Text style={[styles.looser, styles.user]}>{game.getLooserId()}</Text>
+            <Text style={[styles.looser, styles.user]}>{Case.title(game.getLooserId())}</Text>
           </View>
         </View>
       );
