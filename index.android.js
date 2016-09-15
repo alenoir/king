@@ -7,7 +7,15 @@ import {
 
 import App from './src/containers/App';
 
-global.RatingTracker = new RatingRequestor('com.coverage.king');
+global.RatingTracker = new RatingRequestor('com.coverage.king', {
+  title: 'Tu aimes KING! ?',
+  message: 'Entre deux partis de KING! viens noter l\'application !',
+  actionLabels: {
+    decline: 'Non merci...',
+    delay: 'Une prochaine fois',
+    accept: 'Avec plaisir !',
+  },
+});
 
 class king extends Component {
   render() {

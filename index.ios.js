@@ -10,7 +10,15 @@ import {
 
 import App from './src/containers/App';
 
-global.RatingTracker = new RatingRequestor('1154893287');
+global.RatingTracker = new RatingRequestor('1154893287', {
+  title: 'Tu aimes KING! ?',
+  message: 'Entre deux partis de KING! viens noter l\'application !',
+  actionLabels: {
+    decline: 'Non merci...',
+    delay: 'Une prochaine fois',
+    accept: 'Avec plaisir !',
+  },
+});
 
 class king extends Component {
   constructor() {

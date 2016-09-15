@@ -52,10 +52,21 @@ const Api = {
     return new Promise((resolve) => {
       realm.write(() => {
         const dataEncoded = encodeGameData(data);
-        const lastGames = realmGames.snapshot().sorted('createdAt', true);
+        const lastGames = realmGames.sorted('createdAt', true);
+        console.log('-------- lastGames --------', lastGames, lastGames.values());
+        let lastGame = null;
+
+        lastGames.forEach((game) => {
+          if (!lastGame || parseInt(lastGame.id, 10) < parseInt(game.id, 10)) {
+            lastGame = game;
+          }
+        });
+
         let id = '1';
-        if (lastGames.length > 0) {
-          let intId = parseInt(lastGames[0].id, 10);
+        if (lastGame) {
+          console.log('-------- lastGames[0] --------', lastGame);
+          console.log('-------- lastGames[0].id --------', lastGame.id);
+          let intId = parseInt(lastGame.id, 10);
           intId++;
           id = intId.toString();
         }

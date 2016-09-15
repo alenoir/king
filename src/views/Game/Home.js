@@ -240,8 +240,6 @@ class Feed extends Component {
 
         updated = true;
 
-        RatingTracker.handlePositiveEvent();
-
         Alert.alert(
           'Partie terminée',
           `Bravo à ${winnerId} qui a gagné la partie avec un score de ${winnerTotal} !`,
