@@ -1,2 +1,7 @@
 json_key_file "android/app/credentials.json"
 package_name "com.coverage.king"
+
+app_identifier "com.coverage.king"
+apple_id "antoine.alenoir@gmail.com"
+
+team_id "N748PGRLNM"
