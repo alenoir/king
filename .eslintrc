@@ -16,6 +16,7 @@
         "ReactNative": true,
         "React": true,
         "Immutable": true,
+        RatingTracker: true
     },
     "env": {
       "node": true,

@@ -13,13 +13,11 @@ const {
 } = React;
 
 const scenes = Actions.create(
-  <Scene key="modal" component={Modal} >
-    <Scene key="root" hideNavBar>
-      <Scene key="feed" component={Feed} title="Feed" initial />
-      <Scene key="gameNew" direction="vertical" component={GameNew} title="New Game" />
-      <Scene key="gameHome" direction="vertical" component={GameHome} title="Game" />
-      <Scene key="gameScore" direction="vertical" component={GameScore} title="Game Score" />
-    </Scene>
+  <Scene key="root" hideNavBar>
+    <Scene key="feed" component={Feed} title="Feed" initial />
+    <Scene key="gameNew" direction="vertical" component={GameNew} title="New Game" />
+    <Scene key="gameHome" direction="vertical" component={GameHome} title="Game" />
+    <Scene key="gameScore" direction="vertical" component={GameScore} title="Game Score" />
   </Scene>
 );
 
