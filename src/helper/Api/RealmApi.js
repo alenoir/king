@@ -53,7 +53,6 @@ const Api = {
       realm.write(() => {
         const dataEncoded = encodeGameData(data);
         const lastGames = realmGames.sorted('createdAt', true);
-        console.log('-------- lastGames --------', lastGames, lastGames.values());
         let lastGame = null;
 
         lastGames.forEach((game) => {
@@ -64,8 +63,6 @@ const Api = {
 
         let id = '1';
         if (lastGame) {
-          console.log('-------- lastGames[0] --------', lastGame);
-          console.log('-------- lastGames[0].id --------', lastGame.id);
           let intId = parseInt(lastGame.id, 10);
           intId++;
           id = intId.toString();
