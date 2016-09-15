@@ -103,8 +103,15 @@ class ParticipantChoice extends Component {
     this.state = defaultState;
   }
 
+  componentDidMount() {
+    const selectedPlayers = this.state.selectedPlayers;
+    this.props.onChange(selectedPlayers);
+  }
+
   handleAddPlayer() {
     const selectedPlayers = this.state.selectedPlayers;
+    console.log('----- handleAddPlayer-----', selectedPlayers);
+
     const newPlayer = this.state.currentInputText;
     if (newPlayer !== '' && selectedPlayers.indexOf(newPlayer) < 0) {
       selectedPlayers.push(newPlayer);
@@ -116,8 +123,9 @@ class ParticipantChoice extends Component {
         currentInputText: '',
         selectedPlayers,
       });
+    } else if (newPlayer === '' && selectedPlayers.length > 1) {
+      this.props.onFinsh();
     }
-    this.input.focus();
   }
 
   handleRemovePlayer(name) {
@@ -133,7 +141,6 @@ class ParticipantChoice extends Component {
       currentInputText: '',
       selectedPlayers,
     });
-    this.input.focus();
   }
 
   handleInputChange(text) {
@@ -175,7 +182,7 @@ class ParticipantChoice extends Component {
               autoFocus
               returnKeyType="next"
               autoCorrect={false}
-              onEndEditing={() => dismissKeyboard()}
+              blurOnSubmit={false}
             />
           </View>
           <TouchableOpacity
@@ -195,6 +202,7 @@ class ParticipantChoice extends Component {
 }
 
 ParticipantChoice.propTypes = {
+  onFinsh: PropTypes.func,
   onChange: PropTypes.func,
   players: PropTypes.object,
 };
