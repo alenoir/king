@@ -110,7 +110,6 @@ class ParticipantChoice extends Component {
 
   handleAddPlayer() {
     const selectedPlayers = this.state.selectedPlayers;
-    console.log('----- handleAddPlayer-----', selectedPlayers);
 
     const newPlayer = this.state.currentInputText;
     if (newPlayer !== '' && selectedPlayers.indexOf(newPlayer) < 0) {
