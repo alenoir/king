@@ -232,9 +232,6 @@ class Feed extends Component {
       }
     }, null);
 
-    console.log('--- winnerId ----', winnerId, winnerTotal);
-    console.log('--- looserId ----', looserId, looserTotal);
-
     if (roundFinished) {
       if (looserTotal > 200 && !game.getClosedAt()) {
         updatedGame = updatedGame.set('closedAt', new Date());
@@ -242,6 +239,8 @@ class Feed extends Component {
         updatedGame = updatedGame.set('winnerId', winnerId);
 
         updated = true;
+
+        RatingTracker.handlePositiveEvent();
 
         Alert.alert(
           'Partie terminée',
