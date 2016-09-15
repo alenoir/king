@@ -102,6 +102,14 @@ class GameList extends Component {
     }).start();
   }
 
+  handlePress() {
+    this.props.onSelect(this.props.game.getId());
+  }
+
+  handleLongPress() {
+    this.props.onLongPress(this.props.game.getId());
+  }
+
   animationActionComplete() {
     if (this.progressValue === 1) {
       this.props.onLongPress(this.props.game.getId());
@@ -141,8 +149,8 @@ class GameList extends Component {
         <TouchableOpacity
           testID={'game_item_button'}
           style={styles.button}
-          onPressIn={() => this.handlePressIn()}
-          onPressOut={() => this.handlePressOut()}
+          onPress={() => this.handlePress()}
+          onLongPress={() => this.handleLongPress()}
         >
           <View style={styles.titleWrapper}>
             <Text style={styles.title}>{game.getTitle()}</Text>
