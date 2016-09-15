@@ -435,6 +435,10 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = N748PGRLNM;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "king" */;
@@ -716,7 +720,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = N748PGRLNM;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -731,7 +738,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.coverage.king;
 				PRODUCT_NAME = king;
+				PROVISIONING_PROFILE = "f43a00ab-46fc-4574-ac1a-a1f5c86caf2d";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.coverage.king";
 			};
 			name = Debug;
 		};
@@ -739,6 +749,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = N748PGRLNM;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -753,7 +766,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.coverage.king;
 				PRODUCT_NAME = king;
+				PROVISIONING_PROFILE = "bf182c8b-d244-4690-9b46-66dc0a020f7d";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.coverage.king";
 			};
 			name = Release;
 		};
