@@ -53,12 +53,8 @@ const Api = {
       realm.write(() => {
         const dataEncoded = encodeGameData(data);
         const lastGames = realmGames.snapshot().sorted('createdAt', true);
-        console.log('-------- lastGames --------', lastGames);
-
         let id = '1';
         if (lastGames.length > 0) {
-          console.log('-------- lastGames[0] --------', lastGames[0]);
-          console.log('-------- lastGames[0].id --------', lastGames[0].id);
           let intId = parseInt(lastGames[0].id, 10);
           intId++;
           id = intId.toString();

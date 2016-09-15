@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  statusbar: {
+    flex: 1,
+    height: 20,
+  },
+
   button: {
     flex: 1,
     justifyContent: 'center',
@@ -61,27 +66,33 @@ class Header extends Component {
     }
 
     return (
-      <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={(onLeftButtonPress)}
-        >
-          <Image
-            style={styles.icon}
-            source={buttonLeftImage}
-          />
-        </TouchableOpacity>
-        <Text style={styleTitle}>{this.props.title}</Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={(onRightButtonPress)}
-        >
-          <Image
-            style={styles.icon}
-            source={buttonRightImage}
-          />
-        </TouchableOpacity>
+      <View>
+        <View style={styles.statusbar} />
+
+        <View style={styles.container}>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={(onLeftButtonPress)}
+          >
+            <Image
+              style={styles.icon}
+              source={buttonLeftImage}
+            />
+          </TouchableOpacity>
+          <Text style={styleTitle}>{this.props.title}</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={(onRightButtonPress)}
+          >
+            <Image
+              style={styles.icon}
+              source={buttonRightImage}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
+
     );
   }
 

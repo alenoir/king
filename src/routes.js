@@ -1,4 +1,4 @@
-import { Scene, Actions, Router, Reducer, Modal } from 'react-native-router-flux';
+import { Scene, Actions, Router, Reducer } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import React from 'react';
 
