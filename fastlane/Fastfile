@@ -3,7 +3,7 @@ default_platform :android
 
 platform :android do
   desc "Deploy a new version to the Google Play Store"
-  lane :alpha do
+  lane :beta do
     gradle(
       task: "assemble",
       build_type: "Release",
@@ -20,6 +20,11 @@ end
 platform :ios do
   desc "Responsible for building and signing the app"
   private_lane :build_app do |options|
+    deliver(
+      force: true,
+      team_name: "antoine lenoir|297178063"
+    )
+
     match(type: "appstore")
 
     increment_build_number(
@@ -30,7 +35,6 @@ platform :ios do
       project: "ios/king.xcodeproj",
       scheme: "king",
       output_directory: "./fastlane/Release/",
-      team_name: "antoine lenoir"
     )
   end
 
