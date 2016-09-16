@@ -3,13 +3,16 @@ default_platform :ios
 
 platform :android do
   desc "Deploy a new version to the Google Play Store"
-  lane :beta do
-    sh "npm i"
+  lane :build_android do
     gradle(
       task: "assemble",
       build_type: "Release",
       project_dir: "android/"
     )
+  end
+  lane :beta do
+    build_android
+    
     desc "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
     supply(
       track: "alpha",
@@ -20,9 +23,7 @@ end
 
 platform :ios do
   desc "Responsible for building and signing the app"
-  private_lane :build_app do |options|
-    sh "npm i"
-    
+  lane :build_ios do
     deliver(
       force: true,
       team_name: "antoine lenoir|297178063"
