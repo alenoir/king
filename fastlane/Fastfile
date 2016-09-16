@@ -21,6 +21,8 @@ end
 platform :ios do
   desc "Responsible for building and signing the app"
   private_lane :build_app do |options|
+    sh "npm i"
+    
     deliver(
       force: true,
       team_name: "antoine lenoir|297178063"
