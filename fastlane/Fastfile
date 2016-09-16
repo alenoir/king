@@ -37,7 +37,8 @@ platform :ios do
 
     match(
       type: "appstore",
-      keychain_name: keychain_name
+      keychain_name: keychain_name,
+      verbose: true
     )
 
     deliver(
