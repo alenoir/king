@@ -12,7 +12,7 @@ platform :android do
   end
   lane :beta do
     build_android
-    
+
     desc "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
     supply(
       track: "alpha",
@@ -45,7 +45,7 @@ platform :ios do
   desc "Build and upload a new build to Apple TestFlight"
   desc "This action will also do a build version bump and push it to git."
   lane :beta do
-    build_app
+    build_ios
 
     pilot
 
