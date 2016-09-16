@@ -1,9 +1,10 @@
 fastlane_version "1.68.0"
-default_platform :android
+default_platform :ios
 
 platform :android do
   desc "Deploy a new version to the Google Play Store"
   lane :beta do
+    sh "npm i"
     gradle(
       task: "assemble",
       build_type: "Release",
