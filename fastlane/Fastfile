@@ -35,7 +35,10 @@ platform :ios do
       password: SecureRandom.base64
     )
 
-    match(type: "appstore")
+    match(
+      type: "appstore",
+      keychain_name: keychain_name
+    )
 
     deliver(
       force: true,
