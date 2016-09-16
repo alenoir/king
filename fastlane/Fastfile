@@ -24,12 +24,24 @@ end
 platform :ios do
   desc "Responsible for building and signing the app"
   lane :build do
+    keychain_name = "king-certs"
+
+    create_keychain(
+      name: keychain_name,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true,
+      password: SecureRandom.base64
+    )
+
+    match(type: "appstore")
+
     deliver(
       force: true,
       team_name: "antoine lenoir|297178063"
     )
 
-    match(type: "appstore")
 
     increment_build_number(
       xcodeproj: "ios/king.xcodeproj"
@@ -39,6 +51,10 @@ platform :ios do
       project: "ios/king.xcodeproj",
       scheme: "king",
       output_directory: "./fastlane/Release/",
+    )
+
+    delete_keychain(
+      name: keychain_name
     )
   end
 
