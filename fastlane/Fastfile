@@ -3,7 +3,7 @@ default_platform :ios
 
 platform :android do
   desc "Deploy a new version to the Google Play Store"
-  lane :build_android do
+  lane :build do
     gradle(
       task: "assemble",
       build_type: "Release",
@@ -11,7 +11,7 @@ platform :android do
     )
   end
   lane :beta do
-    build_android
+    build
 
     desc "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
     supply(
@@ -23,7 +23,7 @@ end
 
 platform :ios do
   desc "Responsible for building and signing the app"
-  lane :build_ios do
+  lane :build do
     deliver(
       force: true,
       team_name: "antoine lenoir|297178063"
@@ -45,7 +45,7 @@ platform :ios do
   desc "Build and upload a new build to Apple TestFlight"
   desc "This action will also do a build version bump and push it to git."
   lane :beta do
-    build_ios
+    build
 
     pilot
 
