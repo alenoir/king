@@ -1,4 +1,4 @@
-git_url "git@github.com:alenoir/match-king.git"
+git_url "https://github.com/alenoir/match-king.git"
 
 type "development" # The default type, can be: appstore, adhoc or development
 
