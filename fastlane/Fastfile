@@ -38,6 +38,7 @@ platform :ios do
 
 
     increment_build_number(
+      build_number: number_of_commits,
       xcodeproj: "ios/king.xcodeproj"
     )
 
