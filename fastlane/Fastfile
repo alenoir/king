@@ -24,21 +24,11 @@ end
 platform :ios do
   desc "Responsible for building and signing the app"
   lane :build do
-    keychain_name = "king-certs"
-
-    create_keychain(
-      name: keychain_name,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true,
-      password: SecureRandom.base64
-    )
 
     match(
       type: "appstore",
-      keychain_name: keychain_name,
-      verbose: true
+      verbose: true,
+      readonly: true
     )
 
     deliver(
@@ -57,9 +47,6 @@ platform :ios do
       output_directory: "./fastlane/Release/",
     )
 
-    delete_keychain(
-      name: keychain_name
-    )
   end
 
   desc "Build and upload a new build to Apple TestFlight"
