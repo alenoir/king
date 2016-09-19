@@ -5,9 +5,8 @@ node_js:
   - "5.11"
 before_install:
   - gem update fastlane --no-ri --no-doc --no-document
+  - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
 script:
   - ./fastlane/travis.sh
-before_install:
-  - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
 after_success:
   - bash <(curl -s https://codecov.io/bash)
