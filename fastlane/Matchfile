@@ -1,4 +1,4 @@
-git_url "git+ssh://gitlab.com/coverageHQ/match-king.git"
+git_url "git@github.com:alenoir/match-king.git"
 
 type "development" # The default type, can be: appstore, adhoc or development
 
