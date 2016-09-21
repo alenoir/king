@@ -6,15 +6,25 @@ sudo gem install fastlane
 ```
 # Available Actions
 ## Android
+### android build
+```
+fastlane android build
+```
+Deploy a new version to the Google Play Store
 ### android beta
 ```
 fastlane android beta
 ```
-Deploy a new version to the Google Play Store
+
 
 ----
 
 ## iOS
+### ios build
+```
+fastlane ios build
+```
+Responsible for building and signing the app
 ### ios beta
 ```
 fastlane ios beta
