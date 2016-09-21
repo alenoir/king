@@ -51,7 +51,6 @@ class GameList extends Component {
 GameList.propTypes = {
   style: PropTypes.number,
   games: PropTypes.object,
-  players: PropTypes.object,
   onItemSelected: PropTypes.func,
   onItemLongPress: PropTypes.func,
 };

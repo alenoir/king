@@ -55,7 +55,6 @@ class GameItem extends Component {
 //
 
 GameItem.propTypes = {
-  roundId: PropTypes.number,
   score: PropTypes.object,
 };
 

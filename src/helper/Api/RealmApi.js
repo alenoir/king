@@ -44,7 +44,7 @@ const Api = {
    * Game
    */
   fetchGames() {
-    const games = realmGames.sorted('createdAt', true).map((game) => decodeGameData(game));
+    const games = realmGames.sorted('createdAt', true).map(game => decodeGameData(game));
     return Promise.resolve(games);
   },
 
@@ -64,7 +64,7 @@ const Api = {
         let id = '1';
         if (lastGame) {
           let intId = parseInt(lastGame.id, 10);
-          intId++;
+          intId += 1;
           id = intId.toString();
         }
         dataEncoded.id = id;
@@ -99,7 +99,7 @@ const Api = {
    */
   fetchScores(id) {
     const scores = realmScores.filtered(`gameId = "${id}"`)
-    .map((score) => decodeScoreData(score));
+    .map(score => decodeScoreData(score));
     return Promise.resolve(scores);
   },
 

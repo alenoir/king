@@ -5,7 +5,6 @@ import ReactNative from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import isNumber from 'is-number';
 
-import gameActions from '../../actions/gameActions';
 import scoreActions from '../../actions/scoreActions';
 
 import Header from '../../components/Header';
@@ -184,7 +183,7 @@ class GameScore extends Component {
         />
         <TextInput
           style={styles.input}
-          onChangeText={(text) => this.handleOnChange(text)}
+          onChangeText={text => this.handleOnChange(text)}
           value={this.state.currentPlayer.score.toString()}
           autoFocus
           autoCorrect={false}
@@ -221,20 +220,14 @@ GameScore.propTypes = {
   round: PropTypes.number.isRequired,
   gameId: PropTypes.string.isRequired,
   game: PropTypes.object.isRequired,
-  player: PropTypes.object.isRequired,
-  gameActions: PropTypes.object.isRequired,
   scoreActions: PropTypes.object.isRequired,
-  routes: PropTypes.object,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   score: state.score,
   game: state.game,
-  player: state.player,
-  routes: state.routes,
 });
-const mapDispatchToProps = (dispatch) => ({
-  gameActions: bindActionCreators(gameActions, dispatch),
+const mapDispatchToProps = dispatch => ({
   scoreActions: bindActionCreators(scoreActions, dispatch),
 });
 

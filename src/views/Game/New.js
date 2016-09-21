@@ -113,7 +113,7 @@ class Feed extends Component {
         />
         <ParticipantChoice
           players={player.get('list')}
-          onChange={((ids) => this.handlePlayersChange(ids))}
+          onChange={(ids => this.handlePlayersChange(ids))}
           onFinsh={(() => this.handleNext())}
         />
 
@@ -138,18 +138,14 @@ class Feed extends Component {
 }
 
 Feed.propTypes = {
-  game: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
-  routes: PropTypes.object,
 };
 
-const mapStateToProps = (state) => ({
-  game: state.game,
+const mapStateToProps = state => ({
   player: state.player,
-  routes: state.routes,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   gameActions: bindActionCreators(gameActions, dispatch),
 });
 
