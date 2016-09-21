@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -39,9 +40,9 @@
 		A181CFE01D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
 		A181CFE11D86FED700371389 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */; };
 		B1B65A6CA4F840049D8E2537 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F032F46CA8014F55AEFFF775 /* libz.tbd */; };
+		D40ADBEEEA25437EA312A651 /* libSMXCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C492E404CA8449FB87C1550 /* libSMXCrashlytics.a */; };
 		E8950075036143828C7F9C99 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C2A7CF41634D00BAE99E08 /* libRealmReact.a */; };
 		FAF9D49F554442CBB1551A88 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A53E7E0ABF4581ABA19624 /* libc++.tbd */; };
-		D40ADBEEEA25437EA312A651 /* libSMXCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C492E404CA8449FB87C1550 /* libSMXCrashlytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,13 @@
 			remoteGlobalIDString = F60690131CA2766F0003FB26;
 			remoteInfo = RealmReact;
 		};
+		A1F2972D1D8BF1E900F0D2D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 780F3D7D15294B119E594C6B /* SMXCrashlytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8D9DB831C6D03DB009FBC0E;
+			remoteInfo = SMXCrashlytics;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -152,7 +160,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = king/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = king/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1C492E404CA8449FB87C1550 /* libSMXCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSMXCrashlytics.a; sourceTree = "<group>"; };
 		1D284CB7063C447282A33D0D /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
+		780F3D7D15294B119E594C6B /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SMXCrashlytics.xcodeproj; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A181CFCA1D86FED700371389 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
@@ -165,8 +175,6 @@
 		A181CFD11D86FED700371389 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
 		C8C2A7CF41634D00BAE99E08 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		F032F46CA8014F55AEFFF775 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		780F3D7D15294B119E594C6B /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; name = "SMXCrashlytics.xcodeproj"; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		1C492E404CA8449FB87C1550 /* libSMXCrashlytics.a */ = {isa = PBXFileReference; name = "libSMXCrashlytics.a"; path = "libSMXCrashlytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +395,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A1F2971F1D8BF1E900F0D2D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1F2972E1D8BF1E900F0D2D1 /* libSMXCrashlytics.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -501,6 +517,10 @@
 					ProductGroup = A18227DD1D8966FA0056AF02 /* Products */;
 					ProjectRef = 1D284CB7063C447282A33D0D /* RealmReact.xcodeproj */;
 				},
+				{
+					ProductGroup = A1F2971F1D8BF1E900F0D2D1 /* Products */;
+					ProjectRef = 780F3D7D15294B119E594C6B /* SMXCrashlytics.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -586,6 +606,13 @@
 			fileType = archive.ar;
 			path = libRealmReact.a;
 			remoteRef = A18227EA1D8966FA0056AF02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F2972E1D8BF1E900F0D2D1 /* libSMXCrashlytics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSMXCrashlytics.a;
+			remoteRef = A1F2972D1D8BF1E900F0D2D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
