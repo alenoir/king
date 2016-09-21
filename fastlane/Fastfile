@@ -28,14 +28,12 @@ platform :ios do
     match(
       type: "appstore",
       verbose: true,
-      readonly: true
     )
 
     deliver(
       force: true,
       team_name: "antoine lenoir|297178063"
     )
-
 
     increment_build_number(
       build_number: number_of_commits,
