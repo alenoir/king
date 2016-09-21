@@ -85,8 +85,8 @@ class Feed extends Component {
           big
         />
         <GameList
-          onItemLongPress={(id) => this.handleItemLongPress(id)}
-          onItemSelected={(id) => this.handleItemSelected(id)}
+          onItemLongPress={id => this.handleItemLongPress(id)}
+          onItemSelected={id => this.handleItemSelected(id)}
           style={styles.list}
           games={game.get('list')}
         />
@@ -99,14 +99,12 @@ class Feed extends Component {
 Feed.propTypes = {
   game: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
-  routes: PropTypes.object,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   game: state.game,
-  routes: state.routes,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   gameActions: bindActionCreators(gameActions, dispatch),
 });
 

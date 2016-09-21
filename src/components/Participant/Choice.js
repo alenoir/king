@@ -175,7 +175,7 @@ class ParticipantChoice extends Component {
             <TextInput
               ref={((c) => { this.input = c; })}
               style={[styles.input, { width: this.state.inputWidth }]}
-              onChangeText={(text) => this.handleInputChange(text)}
+              onChangeText={text => this.handleInputChange(text)}
               value={this.state.currentInputText}
               onSubmitEditing={(() => this.handleAddPlayer())}
               autoFocus
@@ -204,7 +204,6 @@ class ParticipantChoice extends Component {
 ParticipantChoice.propTypes = {
   onFinsh: PropTypes.func,
   onChange: PropTypes.func,
-  players: PropTypes.object,
 };
 
 export default ParticipantChoice;

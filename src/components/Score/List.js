@@ -127,7 +127,6 @@ class ScoreList extends Component {
 }
 
 ScoreList.propTypes = {
-  style: PropTypes.number,
   rounds: PropTypes.object,
   players: PropTypes.object,
   handleRoundLongPress: PropTypes.func,

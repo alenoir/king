@@ -160,7 +160,7 @@ class Feed extends Component {
       newresult[item.getRound()] = scoreRound;
       return newresult;
     }, {}));
-    const lastRound = parseInt(rounds.keySeq().map((key) => parseInt(key, 10)).max(), 10) || 0;
+    const lastRound = parseInt(rounds.keySeq().map(key => parseInt(key, 10)).max(), 10) || 0;
     const game = nextProps.game.get('list').get(nextProps.gameId);
     const players = game.getPlayerIds();
 
@@ -335,7 +335,7 @@ class Feed extends Component {
             <ScoreList
               players={this.state.players}
               rounds={this.state.rounds}
-              handleRoundLongPress={(round) => this.handleEditScore(round)}
+              handleRoundLongPress={round => this.handleEditScore(round)}
             />
           </View>
         </View>
@@ -349,19 +349,15 @@ Feed.propTypes = {
   gameId: PropTypes.string.isRequired,
   score: PropTypes.object.isRequired,
   game: PropTypes.object.isRequired,
-  player: PropTypes.object.isRequired,
   gameActions: PropTypes.object.isRequired,
   scoreActions: PropTypes.object.isRequired,
-  routes: PropTypes.object,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   score: state.score,
   game: state.game,
-  player: state.player,
-  routes: state.routes,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   gameActions: bindActionCreators(gameActions, dispatch),
   scoreActions: bindActionCreators(scoreActions, dispatch),
 });
