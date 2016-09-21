@@ -44,3 +44,6 @@ android/app/credentials.json
 
 # Tests
 coverage
+
+# Fastlane
+fastlane/Release

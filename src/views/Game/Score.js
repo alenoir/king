@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
     marginTop: -70,
   },
   score: {
-    fontFamily: 'Montserrat-Black',
+    fontFamily: 'Montserrat-Bold',
     fontSize: 150,
     color: '#FFFFFF',
     textAlign: 'center',
   },
   player: {
     fontFamily: 'Montserrat-Regular',
-    fontSize: 12,
+    fontSize: 16,
     color: '#FFFFFF',
     textAlign: 'center',
   },
@@ -189,6 +189,7 @@ class GameScore extends Component {
           autoFocus
           autoCorrect={false}
           keyboardType={'numeric'}
+          keyboardAppearance={'dark'}
         />
         <View style={styles.scoreContainer}>
           <View style={styles.scoreContent}>

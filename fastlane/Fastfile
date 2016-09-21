@@ -1,14 +1,18 @@
 fastlane_version "1.68.0"
-default_platform :android
+default_platform :ios
 
 platform :android do
   desc "Deploy a new version to the Google Play Store"
-  lane :alpha do
+  lane :build do
     gradle(
       task: "assemble",
       build_type: "Release",
       project_dir: "android/"
     )
+  end
+  lane :beta do
+    build
+
     desc "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
     supply(
       track: "alpha",
@@ -19,8 +23,29 @@ end
 
 platform :ios do
   desc "Responsible for building and signing the app"
-  private_lane :build_app do |options|
-    match(type: "appstore")
+  lane :build do
+    keychain_name = "king-certs"
+
+    create_keychain(
+      name: keychain_name,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true,
+      password: SecureRandom.base64
+    )
+
+    match(
+      type: "appstore",
+      keychain_name: keychain_name,
+      verbose: true
+    )
+
+    deliver(
+      force: true,
+      team_name: "antoine lenoir|297178063"
+    )
+
 
     increment_build_number(
       xcodeproj: "ios/king.xcodeproj"
@@ -29,14 +54,18 @@ platform :ios do
     gym(
       project: "ios/king.xcodeproj",
       scheme: "king",
-      output_directory: "./fastlane/Release/"
+      output_directory: "./fastlane/Release/",
+    )
+
+    delete_keychain(
+      name: keychain_name
     )
   end
 
   desc "Build and upload a new build to Apple TestFlight"
   desc "This action will also do a build version bump and push it to git."
   lane :beta do
-    build_app
+    build
 
     pilot
 

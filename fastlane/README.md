@@ -6,9 +6,9 @@ sudo gem install fastlane
 ```
 # Available Actions
 ## Android
-### android alpha
+### android beta
 ```
-fastlane android alpha
+fastlane android beta
 ```
 Deploy a new version to the Google Play Store
 

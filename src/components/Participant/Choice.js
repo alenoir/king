@@ -182,6 +182,7 @@ class ParticipantChoice extends Component {
               returnKeyType="next"
               autoCorrect={false}
               blurOnSubmit={false}
+              keyboardAppearance={'dark'}
             />
           </View>
           <TouchableOpacity

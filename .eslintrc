@@ -10,12 +10,15 @@
       "react/prefer-stateless-function": 0,
       "arrow-body-style": 0,
       "import/prefer-default-export": 0,
-      new-cap: 0
+      "new-cap": 0,
+      "import/no-named-as-default": 0,
+      "import/no-named-as-default-member": 0
     },
     "globals": {
         "ReactNative": true,
         "React": true,
         "Immutable": true,
+        RatingTracker: true
     },
     "env": {
       "node": true,

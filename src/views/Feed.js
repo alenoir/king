@@ -47,6 +47,7 @@ class Feed extends Component {
 
   componentDidMount() {
     this.props.gameActions.fetch();
+    RatingTracker.handlePositiveEvent();
   }
 
   handleAddGame() {

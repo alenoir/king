@@ -23,6 +23,7 @@ const {
   Text,
   TouchableOpacity,
   Image,
+  Alert,
 } = ReactNative;
 
 const {
@@ -109,6 +110,13 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 
+  playerScoreWinner: {
+    color: '#F8E71C',
+  },
+  playerNameWinner: {
+    color: '#F8E71C',
+  },
+
   backgroundImage: {
     flex: 1,
     resizeMode: 'stretch',
@@ -158,6 +166,7 @@ class Feed extends Component {
 
     this.setState({
       currentRound: lastRound + 1,
+      gameClosed: !!game.getClosedAt(),
       game,
       rounds,
       scores,
@@ -169,7 +178,7 @@ class Feed extends Component {
     });
 
     if (scoreList !== nextScoreList) {
-      this.updateWinner(game, scores);
+      this.updateWinner(game, rounds);
     }
   }
 
@@ -185,45 +194,71 @@ class Feed extends Component {
     return total;
   }
 
-  updateWinner(game, scores) {
+  updateWinner(game, rounds) {
+    let updatedGame = game;
+    let updated = false;
     let winnerId = null;
     let looserId = null;
     let winnerTotal = null;
     let looserTotal = null;
-    let updatedGame = game;
+    let roundFinished = false;
 
-    const players = game.getPlayerIds();
-
-    players.forEach((player) => {
-      const total = scores.reduce((result, item) => {
-        let newResult = result;
-        if (player === item.getPlayerId()) {
-          newResult += item.getValue();
+    const playersScores = {};
+    rounds.forEach((round) => {
+      if (round.scores.length === game.getPlayerIds().count()) {
+        roundFinished = true;
+      } else {
+        roundFinished = false;
+      }
+      round.scores.forEach((score) => {
+        if (!playersScores[score.getPlayerId()]) {
+          playersScores[score.getPlayerId()] = 0;
         }
-        return newResult;
-      }, 0);
-
-      if (!winnerTotal || winnerTotal > total) {
-        winnerTotal = total;
-        winnerId = player;
-      }
-
-      if (!looserTotal || looserTotal < total) {
-        looserTotal = total;
-        looserId = player;
-      }
+        playersScores[score.getPlayerId()] = playersScores[score.getPlayerId()] + score.getValue();
+      });
     });
 
-    if (game.getWinnerId() !== winnerId || game.getLooserId() !== looserId) {
-      updatedGame = updatedGame.set('looserId', looserId);
-      updatedGame = updatedGame.set('winnerId', winnerId);
 
+    Object.keys(playersScores).forEach((key) => {
+      const value = playersScores[key];
+      if (winnerTotal === null || value < winnerTotal) {
+        winnerId = key;
+        winnerTotal = value;
+      }
+
+      if (looserTotal === null || value > looserTotal) {
+        looserId = key;
+        looserTotal = value;
+      }
+    }, null);
+
+    if (roundFinished) {
+      if (looserTotal > 200 && !game.getClosedAt()) {
+        updatedGame = updatedGame.set('closedAt', new Date());
+        updatedGame = updatedGame.set('looserId', looserId);
+        updatedGame = updatedGame.set('winnerId', winnerId);
+
+        updated = true;
+
+        Alert.alert(
+          'Partie terminée',
+          `Bravo à ${winnerId} qui a gagné la partie avec un score de ${winnerTotal} !`,
+          [
+            { text: 'OK' },
+          ]
+        );
+      }
+    }
+
+    if (updated) {
       this.props.gameActions.update(updatedGame.toJS());
     }
   }
 
   handleAddScore() {
-    Actions.gameScore({ gameId: this.props.gameId, round: this.state.currentRound });
+    if (!this.state.game.getClosedAt()) {
+      Actions.gameScore({ gameId: this.props.gameId, round: this.state.currentRound });
+    }
   }
 
   handleClose() {
@@ -246,33 +281,47 @@ class Feed extends Component {
           <View style={styles.colTotal}>
 
             {this.state.players.map((player) => {
+              const playerNameStyles = [styles.playerName];
+              const playerScoreStyles = [styles.playerScore];
+              if (this.state.game.getClosedAt() && player === this.state.game.getWinnerId()) {
+                playerNameStyles.push(styles.playerNameWinner);
+                playerScoreStyles.push(styles.playerScoreWinner);
+              }
+
               return (
                 <View key={`total_${player}`} style={styles.playerScoreWrapper}>
                   <Text
-                    style={styles.playerScore}
+                    style={playerScoreStyles}
                     numberOfLines={1}
                   >
                     {this.getPlayerScore(player)}
                   </Text>
-                  <Text style={styles.playerName}>{Case.title(player)}</Text>
+                  <Text style={playerNameStyles}>{Case.title(player)}</Text>
                 </View>
               );
             })}
           </View>
           <View style={styles.colAdd}>
             <View style={styles.addButtonWrapper}>
-              <TouchableOpacity
-                style={styles.addButton}
-                onPress={(() => this.handleAddScore())}
-              >
-                <View style={styles.addButtonIconWrapper}>
-                  <Image
-                    style={styles.addButtonIcon}
-                    source={AddIcon}
-                  />
-                </View>
+              {(() => {
+                if (!this.state.game.getClosedAt()) {
+                  return (
+                    <TouchableOpacity
+                      style={styles.addButton}
+                      onPress={(() => this.handleAddScore())}
+                    >
+                      <View style={styles.addButtonIconWrapper}>
+                        <Image
+                          style={styles.addButtonIcon}
+                          source={AddIcon}
+                        />
+                      </View>
 
-              </TouchableOpacity>
+                    </TouchableOpacity>
+                  );
+                }
+                return false;
+              })()}
             </View>
 
             <View style={styles.addButtonDashWrapper}>

@@ -50,16 +50,24 @@ const Api = {
 
   createGame(data) {
     return new Promise((resolve) => {
-      const dataEncoded = encodeGameData(data);
-      const lastGames = realmGames.sorted('createdAt', true);
-      let id = '1';
-      if (lastGames.length !== 0) {
-        let intId = parseInt(lastGames[0].id, 10);
-        intId++;
-        id = intId.toString();
-      }
-      dataEncoded.id = id;
       realm.write(() => {
+        const dataEncoded = encodeGameData(data);
+        const lastGames = realmGames.sorted('createdAt', true);
+        let lastGame = null;
+
+        lastGames.forEach((game) => {
+          if (!lastGame || parseInt(lastGame.id, 10) < parseInt(game.id, 10)) {
+            lastGame = game;
+          }
+        });
+
+        let id = '1';
+        if (lastGame) {
+          let intId = parseInt(lastGame.id, 10);
+          intId++;
+          id = intId.toString();
+        }
+        dataEncoded.id = id;
         const game = realm.create('Game', dataEncoded);
         resolve(decodeGameData(game));
       });
