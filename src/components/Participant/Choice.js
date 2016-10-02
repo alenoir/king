@@ -159,6 +159,7 @@ class ParticipantChoice extends Component {
                 <Text style={styles.itemChoiceText}>{player}</Text>
                 <TouchableOpacity
                   style={styles.itemChoiceButton}
+                  hitSlop={{ top: 10, left: 15, bottom: 10, right: 15 }}
                   onPress={(() => this.handleRemovePlayer(player))}
                 >
                   <Image
