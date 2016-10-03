@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addButtonDisabled: {
-    opacity: 0.3
+    opacity: 0.3,
   },
 
   addButtonBefore: {
@@ -111,7 +111,7 @@ class Feed extends Component {
     if (!this.state.valid) {
       styleButton.push(styles.addButtonDisabled);
     }
-    console.log(styleButton);
+
     return (
       <View style={styles.container}>
         <Header
