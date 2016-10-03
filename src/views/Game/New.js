@@ -29,7 +29,6 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
   },
 
   addButton: {
@@ -39,6 +38,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  addButtonDisabled: {
+    opacity: 0.3
+  },
+
   addButtonBefore: {
     flex: 1,
   },
@@ -104,6 +107,11 @@ class Feed extends Component {
 
   render() {
     const { player } = this.props;
+    const styleButton = [styles.addButton];
+    if (!this.state.valid) {
+      styleButton.push(styles.addButtonDisabled);
+    }
+    console.log(styleButton);
     return (
       <View style={styles.container}>
         <Header
@@ -118,17 +126,19 @@ class Feed extends Component {
         />
 
         <TouchableOpacity
-          style={styles.addButton}
+
           onPress={(() => this.handleNext())}
           disabled={!this.state.valid}
         >
-          <View style={styles.addButtonBefore} />
-          <Text style={styles.addButtonText}>{this.state.buttonText}</Text>
-          <View style={styles.addButtonIconWrapper} >
-            <Image
-              style={styles.addButtonIcon}
-              source={NextIcon}
-            />
+          <View style={styleButton}>
+            <View style={styles.addButtonBefore} />
+            <Text style={styles.addButtonText}>{this.state.buttonText}</Text>
+            <View style={styles.addButtonIconWrapper} >
+              <Image
+                style={styles.addButtonIcon}
+                source={NextIcon}
+              />
+            </View>
           </View>
         </TouchableOpacity>
       </View>
