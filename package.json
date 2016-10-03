@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "postinstall": "remotedev-debugger --hostname 192.168.1.21 --port 5678 --injectserver",
+    "postinstall": "remotedev-debugger --hostname localhost --port 5678 --injectserver",
     "lint": "eslint .",
     "test": "npm run lint && NODE_ENV=__TEST__ jest",
     "link": "rnpm link"
@@ -18,7 +18,7 @@
     "immutable": "^3.8.1",
     "is-number": "^3.0.0",
     "react": "15.3.2",
-    "react-native": "0.33.0",
+    "react-native": "0.33.1",
     "react-native-rating-requestor": "^2.0.0",
     "react-native-router-flux": "^3.35.0",
     "react-redux": "^4.4.5",
