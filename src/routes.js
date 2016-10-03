@@ -38,6 +38,7 @@ class Routes extends Component {
   render() {
     return (
       <Router
+        sceneStyle={{ backgroundColor: 'black' }}
         createReducer={this.reducerCreate}
         scenes={scenes}
       />
