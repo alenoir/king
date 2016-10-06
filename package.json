@@ -28,7 +28,7 @@
     "redux-logger": "^2.0.4",
     "redux-mock-store": "^1.2.0",
     "redux-thunk": "^2.1.0",
-    "remote-redux-devtools": "^0.4.1",
+    "remote-redux-devtools": "^0.5.0",
     "sinon": "^1.17.6"
   },
   "devDependencies": {
