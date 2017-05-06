@@ -42,7 +42,7 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^6.0.0",
-    "jest": "^15.1.1",
+    "jest": "^20.0.0",
     "jest-react-native": "^16.0.0",
     "react-test-renderer": "^15.3.2",
     "remote-redux-devtools-on-debugger": "^0.6.2"
